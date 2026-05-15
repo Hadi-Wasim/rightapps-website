@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "domain": "rightapps.net",
+    "company": "Rightway Systems",
+    "contact": "info@rightapps.net",
+    "configured": "2025-04",
+    "version": "1.0.0",
+    "markets": ["Pakistan", "Saudi Arabia", "UAE"],
+    "site_maturity": "new_0_6mo",
+    "notes": "New domain — use wider thresholds initially. Recalibrate after 3 months of ranking data."
+  },
+
+  "hero_keywords": {
+    "description": "Tier 1 — highest business value, monitor most aggressively",
+    "keywords": [
+      { "term": "ZATCA integration",             "vol": 880,  "page": "service-details.html#zatca-fbr",  "tier": 1 },
+      { "term": "ZATCA Phase 2 compliance",       "vol": 590,  "page": "service-details.html#zatca-fbr",  "tier": 1 },
+      { "term": "ZATCA e-invoicing solution",     "vol": 480,  "page": "service-details.html#zatca-fbr",  "tier": 1 },
+      { "term": "ZATCA e-invoicing Saudi Arabia", "vol": 720,  "page": "solutions/zatca-compliance",       "tier": 1 },
+      { "term": "ZATCA Phase 2 integration",      "vol": 390,  "page": "solutions/zatca-compliance",       "tier": 1 },
+      { "term": "FBR integration Pakistan",       "vol": 390,  "page": "service-details.html#zatca-fbr",  "tier": 1 },
+      { "term": "e-invoicing Pakistan",           "vol": 720,  "page": "service-details.html#zatca-fbr",  "tier": 1 },
+      { "term": "software house Pakistan",        "vol": 1900, "page": "index.html",                       "tier": 1 },
+      { "term": "ERP software Pakistan",          "vol": 880,  "page": "service-details.html#erp",         "tier": 1 },
+      { "term": "Rightway Systems",               "vol": 50,   "page": "index.html",                       "tier": 1 }
+    ]
+  },
+
+  "alert_rules": {
+
+    "category_1_rankings": {
+      "label": "Ranking Alerts",
+      "rules": [
+        {
+          "id": "RANK-001",
+          "name": "Critical Ranking Drop — Tier 1 Keyword",
+          "severity": "URGENT",
+          "condition": "Tier 1 keyword drops 10+ positions in any 7-day window",
+          "threshold": "position_change >= 10",
+          "applies_to": "tier_1_keywords",
+          "response_time": "same_day",
+          "notify": ["email"],
+          "action": "Run ranking-drop-playbook immediately"
+        },
+        {
+          "id": "RANK-002",
+          "name": "Moderate Ranking Drop — Tier 1 Keyword",
+          "severity": "WARNING",
+          "condition": "Tier 1 keyword drops 5–9 positions in 7 days",
+          "threshold": "position_change >= 5 AND position_change < 10",
+          "applies_to": "tier_1_keywords",
+          "response_time": "within_48h",
+          "notify": ["email"],
+          "action": "Investigate cause; check SERP changes and competitor content"
+        },
+        {
+          "id": "RANK-003",
+          "name": "Critical Ranking Drop — Tier 2/3 Keyword",
+          "severity": "WARNING",
+          "condition": "Any tracked keyword drops 10+ positions in 7 days",
+          "threshold": "position_change >= 10",
+          "applies_to": "all_tracked_keywords",
+          "response_time": "within_48h",
+          "notify": ["email"],
+          "action": "Log and investigate pattern; check if algo-related"
+        },
+        {
+          "id": "RANK-004",
+          "name": "Keyword Enters Top 10",
+          "severity": "SUCCESS",
+          "condition": "Keyword moves from position >10 to position <=10",
+          "threshold": "new_position <= 10 AND old_position > 10",
+          "applies_to": "all_tracked_keywords",
+          "response_time": "weekly_review",
+          "notify": ["email"],
+          "action": "Log win; consider adding internal links to boost further"
+        },
+        {
+          "id": "RANK-005",
+          "name": "New Ranking Detected",
+          "severity": "SUCCESS",
+          "condition": "Keyword starts ranking (was 'Not Ranking' / position > 100)",
+          "threshold": "old_position > 100 AND new_position <= 100",
+          "applies_to": "all_tracked_keywords",
+          "response_time": "weekly_review",
+          "notify": ["email"],
+          "action": "Log to rank-history CSV; assess page 2 opportunity (RANK-007)"
+        },
+        {
+          "id": "RANK-006",
+          "name": "Brand Keyword Drop",
+          "severity": "URGENT",
+          "condition": "'Rightway Systems' brand keyword drops below position 3",
+          "threshold": "keyword == 'Rightway Systems' AND new_position > 3",
+          "applies_to": "brand_keyword",
+          "response_time": "same_day",
+          "notify": ["email"],
+          "action": "Check for spam/scraper sites, review Google Business Profile"
+        },
+        {
+          "id": "RANK-007",
+          "name": "Page 2 Opportunity — Easy Win",
+          "severity": "OPTIMIZE",
+          "condition": "Keyword ranking positions 11–20 (page 2)",
+          "threshold": "position >= 11 AND position <= 20",
+          "applies_to": "all_tracked_keywords",
+          "response_time": "next_sprint",
+          "notify": ["email"],
+          "action": "Flag for content refresh or internal link boost. These are lowest-effort wins."
+        },
+        {
+          "id": "RANK-008",
+          "name": "ZATCA Keyword Leaves Top 5",
+          "severity": "URGENT",
+          "condition": "Any ZATCA cluster keyword drops out of top 5 after previously being in top 5",
+          "threshold": "keyword_cluster == 'ZATCA' AND old_position <= 5 AND new_position > 5",
+          "applies_to": "zatca_cluster",
+          "response_time": "same_day",
+          "notify": ["email"],
+          "action": "Run ZATCA Keyword Loss Playbook immediately"
+        }
+      ]
+    },
+
+    "category_2_traffic": {
+      "label": "Traffic Anomalies (Google Search Console)",
+      "rules": [
+        {
+          "id": "TRAF-001",
+          "name": "Traffic Crash — Severe Drop",
+          "severity": "URGENT",
+          "condition": "Total organic clicks drop >30% week-over-week",
+          "threshold": "wow_click_change <= -0.30",
+          "data_source": "Google Search Console",
+          "response_time": "same_day",
+          "notify": ["email"],
+          "action": "Run Traffic Drop Playbook; check algorithm update tracker"
+        },
+        {
+          "id": "TRAF-002",
+          "name": "Traffic Warning — Moderate Drop",
+          "severity": "WARNING",
+          "condition": "Total organic clicks drop 15–29% week-over-week",
+          "threshold": "wow_click_change <= -0.15 AND wow_click_change > -0.30",
+          "data_source": "Google Search Console",
+          "response_time": "within_48h",
+          "notify": ["email"],
+          "action": "Investigate source pages; check for crawl errors in GSC"
+        },
+        {
+          "id": "TRAF-003",
+          "name": "Impressions Collapse — Possible Crawl Issue",
+          "severity": "WARNING",
+          "condition": "Total impressions drop >40% week-over-week",
+          "threshold": "wow_impression_change <= -0.40",
+          "data_source": "Google Search Console",
+          "response_time": "same_day",
+          "notify": ["email"],
+          "action": "Crawl site immediately; check robots.txt and sitemap; run Coverage report in GSC"
+        },
+        {
+          "id": "TRAF-004",
+          "name": "CTR Drop — Possible Meta Tag Issue",
+          "severity": "REVIEW",
+          "condition": "Average CTR drops >20% week-over-week",
+          "threshold": "wow_ctr_change <= -0.20",
+          "data_source": "Google Search Console",
+          "response_time": "within_48h",
+          "notify": ["email"],
+          "action": "Review title tags and meta descriptions; check if SERP features changed (ads, snippets)"
+        },
+        {
+          "id": "TRAF-005",
+          "name": "Three-Week Declining Trend",
+          "severity": "WARNING",
+          "condition": "Organic traffic declines for 3 consecutive weeks (any amount)",
+          "threshold": "consecutive_weekly_declines >= 3",
+          "data_source": "Google Search Console",
+          "response_time": "within_48h",
+          "notify": ["email"],
+          "action": "Conduct full content audit; identify declining pages; assess competitor content"
+        }
+      ]
+    },
+
+    "category_3_technical": {
+      "label": "Technical Alerts",
+      "rules": [
+        {
+          "id": "TECH-001",
+          "name": "404 Error Spike",
+          "severity": "URGENT",
+          "condition": "New 404 errors spike: >20 new 404s detected in Google Search Console",
+          "threshold": "new_404_errors_per_day > 20",
+          "data_source": "Google Search Console → Coverage",
+          "response_time": "same_day",
+          "notify": ["email"],
+          "action": "Identify broken URLs; set up 301 redirects; check for accidental file moves in deployment"
+        },
+        {
+          "id": "TECH-002",
+          "name": "Crawl Errors Detected",
+          "severity": "WARNING",
+          "condition": "New crawl errors appear in GSC Coverage report",
+          "threshold": "new_crawl_errors > 5",
+          "data_source": "Google Search Console → Coverage",
+          "response_time": "within_48h",
+          "notify": ["email"],
+          "action": "Run Crawl Error Playbook; check server logs for 5xx patterns"
+        },
+        {
+          "id": "TECH-003",
+          "name": "Sitemap Error",
+          "severity": "WARNING",
+          "condition": "Sitemap fails to fetch or returns errors in GSC",
+          "threshold": "sitemap_status != 'Success'",
+          "data_source": "Google Search Console → Sitemaps",
+          "response_time": "same_day",
+          "notify": ["email"],
+          "action": "Re-validate sitemap XML; check hosting for file access; re-submit in GSC"
+        },
+        {
+          "id": "TECH-004",
+          "name": "Core Web Vitals Degradation",
+          "severity": "REVIEW",
+          "condition": "CWV report shows pages moving from 'Good' to 'Needs Improvement' or 'Poor'",
+          "threshold": "cwv_status == 'Poor' OR cwv_status == 'Needs Improvement'",
+          "data_source": "Google Search Console → Core Web Vitals",
+          "response_time": "within_week",
+          "notify": ["email"],
+          "action": "Run PageSpeed Insights; identify specific metric (LCP, INP, CLS); escalate to dev team"
+        },
+        {
+          "id": "TECH-005",
+          "name": "Index Coverage Drop",
+          "severity": "WARNING",
+          "condition": "Number of indexed pages drops >10% from previous week",
+          "threshold": "indexed_page_change <= -0.10",
+          "data_source": "Google Search Console → Coverage",
+          "response_time": "same_day",
+          "notify": ["email"],
+          "action": "Check robots.txt; check for accidental noindex tags; re-submit sitemap"
+        },
+        {
+          "id": "TECH-006",
+          "name": "Manual Action or Security Issue",
+          "severity": "URGENT",
+          "condition": "GSC shows manual action notification or security issue",
+          "threshold": "gsc_manual_action == true OR gsc_security_issue == true",
+          "data_source": "Google Search Console → Manual Actions / Security",
+          "response_time": "immediate",
+          "notify": ["email"],
+          "action": "Read full GSC message; remediate issue; file reconsideration request if manual penalty"
+        }
+      ]
+    },
+
+    "category_4_competitors": {
+      "label": "Competitor Movements",
+      "rules": [
+        {
+          "id": "COMP-001",
+          "name": "Competitor Enters Top 3 — Hero Keyword",
+          "severity": "MONITOR",
+          "condition": "A known or new competitor appears in positions 1–3 for any Tier 1 keyword",
+          "threshold": "competitor_position <= 3 AND keyword_tier == 1",
+          "applies_to": "hero_keywords",
+          "response_time": "weekly_review",
+          "notify": ["email"],
+          "action": "Analyze competitor page: content depth, backlinks, schema. Update own page to outcompete."
+        },
+        {
+          "id": "COMP-002",
+          "name": "New Competitor Page Targeting ZATCA Terms",
+          "severity": "ALERT",
+          "condition": "A new domain/page appears ranking for ZATCA cluster keywords that wasn't there before",
+          "threshold": "new_serp_entrant == true AND keyword_cluster == 'ZATCA'",
+          "applies_to": "zatca_cluster",
+          "response_time": "within_48h",
+          "notify": ["email"],
+          "action": "Immediately audit new competitor page. Check content gaps. Strengthen ZATCA landing page content and schema."
+        },
+        {
+          "id": "COMP-003",
+          "name": "Competitor Content Update on Shared Topic",
+          "severity": "INFO",
+          "condition": "Google Alerts fires for competitor publishing/updating content on target keywords",
+          "threshold": "google_alert_trigger == true",
+          "data_source": "Google Alerts",
+          "response_time": "weekly_review",
+          "notify": ["email"],
+          "action": "Review their new content. Identify any gaps to address in your own content calendar."
+        }
+      ]
+    },
+
+    "category_5_opportunities": {
+      "label": "Opportunity Alerts",
+      "rules": [
+        {
+          "id": "OPP-001",
+          "name": "Page 2 Cluster — ZATCA",
+          "severity": "OPTIMIZE",
+          "condition": "Any ZATCA keyword ranking position 11–20",
+          "threshold": "position >= 11 AND position <= 20 AND keyword_cluster == 'ZATCA'",
+          "applies_to": "zatca_cluster",
+          "response_time": "next_sprint",
+          "notify": ["email"],
+          "action": "Highest priority easy win. Refresh content, add FAQ schema, build 1–2 internal links to target page."
+        },
+        {
+          "id": "OPP-002",
+          "name": "Page 2 Cluster — ERP/LMS",
+          "severity": "OPTIMIZE",
+          "condition": "Any ERP or LMS keyword ranking position 11–20",
+          "threshold": "position >= 11 AND position <= 20 AND keyword_cluster IN ['ERP','LMS']",
+          "applies_to": "erp_lms_cluster",
+          "response_time": "next_sprint",
+          "notify": ["email"],
+          "action": "Refresh content on target page; add internal links; consider a supporting blog post."
+        },
+        {
+          "id": "OPP-003",
+          "name": "Featured Snippet Opportunity",
+          "severity": "OPTIMIZE",
+          "condition": "Keyword ranking position 1–5 and no featured snippet currently claimed by Rightway",
+          "threshold": "position <= 5 AND featured_snippet_owner != 'rightapps.net'",
+          "response_time": "within_week",
+          "notify": ["email"],
+          "action": "Add direct answer format (40–60 word definition block), numbered list, or table to page targeting the snippet format."
+        },
+        {
+          "id": "OPP-004",
+          "name": "People Also Ask (PAA) Box Opportunity",
+          "severity": "CONTENT",
+          "condition": "PAA questions detected in SERP for tracked keyword not already answered in content",
+          "threshold": "paa_box_present == true AND content_covers_question == false",
+          "response_time": "next_content_sprint",
+          "notify": ["email"],
+          "action": "Add FAQ section to target page answering the detected PAA question. Use FAQ schema markup."
+        },
+        {
+          "id": "OPP-005",
+          "name": "Quick Win — Low Competition Keyword Ranking 21–50",
+          "severity": "OPTIMIZE",
+          "condition": "Low-competition keyword (marked L in research) ranking 21–50",
+          "threshold": "position >= 21 AND position <= 50 AND competition == 'L'",
+          "response_time": "next_sprint",
+          "notify": ["email"],
+          "action": "Improve on-page SEO: H2 with keyword, internal link, meta description refresh."
+        }
+      ]
+    }
+  },
+
+  "notification_config": {
+    "primary_channel": {
+      "type": "email",
+      "address": "info@rightapps.net",
+      "digest_schedule": {
+        "URGENT": "immediate",
+        "WARNING": "daily_at_9am",
+        "REVIEW": "daily_at_9am",
+        "MONITOR": "weekly_monday_8am",
+        "OPTIMIZE": "weekly_monday_8am",
+        "CONTENT": "weekly_monday_8am",
+        "SUCCESS": "weekly_monday_8am",
+        "INFO": "weekly_monday_8am",
+        "ALERT": "immediate"
+      }
+    },
+    "secondary_channel": {
+      "type": "whatsapp",
+      "note": "Manual escalation — forward URGENT and ALERT emails to WhatsApp group immediately",
+      "group_name": "Rightway SEO Team"
+    },
+    "suppression_rules": {
+      "duplicate_cooldown_hours": 24,
+      "weekend_traffic_threshold_adjustment": "+20% (traffic naturally lower on weekends)",
+      "batch_related_ranking_drops": true,
+      "auto_close_on_recovery_hours": 48
+    }
+  },
+
+  "data_sources": {
+    "google_search_console": {
+      "property": "https://rightapps.net",
+      "check_frequency": "daily",
+      "reports": ["Coverage", "Performance", "Core Web Vitals", "Sitemaps", "Manual Actions", "Security Issues"]
+    },
+    "google_analytics": {
+      "status": "recommended_setup",
+      "notes": "Configure GA4 if not done. Link to GSC for full funnel view."
+    },
+    "manual_rank_tracking": {
+      "tool": "Google Search Console (free) + manual spot checks",
+      "csv_file": "memory/monitoring/rank-history/",
+      "frequency": "weekly_monday"
+    },
+    "google_alerts": {
+      "config_file": "memory/monitoring/google-alerts-setup.md"
+    }
+  },
+
+  "alert_summary": {
+    "total_rules": 23,
+    "by_severity": {
+      "URGENT": 6,
+      "WARNING": 7,
+      "REVIEW": 2,
+      "MONITOR": 1,
+      "ALERT": 2,
+      "OPTIMIZE": 5,
+      "SUCCESS": 2,
+      "CONTENT": 1,
+      "INFO": 1
+    },
+    "by_category": {
+      "Rankings": 8,
+      "Traffic": 5,
+      "Technical": 6,
+      "Competitors": 3,
+      "Opportunities": 5
+    }
+  }
+}

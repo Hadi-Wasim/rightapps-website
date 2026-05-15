@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1584" />
+  <title>Rightway Systems — LinkedIn Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter+Tight:wght@300;400;600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1a1a2e; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.55; }
+      50%       { opacity: 0.80; }
+    }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes lineGrow {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+
+    .banner {
+      position: relative;
+      width: 1584px;
+      height: 396px;
+      background: #0d1017;
+      overflow: hidden;
+      font-family: 'Sora', sans-serif;
+    }
+
+    /* Dot grid */
+    .dot-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(141,89,255,0.15) 2px, transparent 2px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Radial glow — center-left */
+    .glow-left {
+      position: absolute;
+      top: -80px;
+      left: -60px;
+      width: 700px;
+      height: 560px;
+      background: radial-gradient(ellipse at 30% 50%, rgba(141,89,255,0.22) 0%, rgba(34,126,255,0.08) 45%, transparent 70%);
+      pointer-events: none;
+      animation: glowPulse 5s ease-in-out infinite;
+    }
+
+    /* Right side subtle glow */
+    .glow-right {
+      position: absolute;
+      top: -40px;
+      right: -80px;
+      width: 500px;
+      height: 480px;
+      background: radial-gradient(ellipse at 70% 50%, rgba(34,126,255,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Company name top-left */
+    .company-name {
+      position: absolute;
+      top: 30px;
+      left: 52px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      animation: fadeSlideIn 0.6s ease both;
+    }
+    .company-name span {
+      color: #219ebc;
+    }
+
+    /* Left section */
+    .left-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 920px;
+      height: 396px;
+      padding: 68px 56px 48px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .main-heading {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 46px;
+      line-height: 1.18;
+      color: rgba(255,255,255,0.95);
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      animation: fadeSlideIn 0.7s ease 0.1s both;
+    }
+    .main-heading em {
+      font-style: normal;
+      color: #219ebc;
+    }
+
+    .sub-mono {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 300;
+      font-size: 13.5px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      animation: fadeSlideIn 0.7s ease 0.2s both;
+    }
+
+    /* Vertical divider */
+    .divider {
+      position: absolute;
+      top: 48px;
+      left: 960px;
+      width: 1px;
+      height: 300px;
+      background: linear-gradient(to bottom, transparent, rgba(141,89,255,0.55) 30%, rgba(141,89,255,0.55) 70%, transparent);
+    }
+
+    /* Right section */
+    .right-section {
+      position: absolute;
+      top: 0;
+      left: 980px;
+      width: 570px;
+      height: 396px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 44px;
+      gap: 16px;
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 22px;
+      background: rgba(141,89,255,0.07);
+      border: 1px solid rgba(141,89,255,0.18);
+      border-left: 3px solid #219ebc;
+      border-radius: 6px;
+      animation: fadeSlideIn 0.7s ease both;
+    }
+    .stat-pill:nth-child(2) { animation-delay: 0.15s; }
+    .stat-pill:nth-child(3) { animation-delay: 0.30s; }
+
+    .stat-value {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 26px;
+      color: #219ebc;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .stat-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.01em;
+    }
+
+    /* Bottom bar */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #219ebc, rgba(34,126,255,0.6) 50%, transparent);
+    }
+
+    /* URL bottom-right */
+    .url-tag {
+      position: absolute;
+      bottom: 16px;
+      right: 36px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.3);
+      text-transform: lowercase;
+    }
+
+    /* Top edge line */
+    .top-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(141,89,255,0.4) 30%, rgba(34,126,255,0.3) 70%, transparent);
+      animation: lineGrow 1.2s ease 0.3s both;
+    }
+
+    /* Founded badge */
+    .founded-badge {
+      position: absolute;
+      top: 30px;
+      right: 36px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: rgba(141,89,255,0.7);
+      text-transform: uppercase;
+      border: 1px solid rgba(141,89,255,0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(141,89,255,0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <!-- Layers -->
+    <div class="dot-grid"></div>
+    <div class="glow-left"></div>
+    <div class="glow-right"></div>
+    <div class="top-line" style="width:100%;"></div>
+
+    <!-- Company name -->
+    <div class="company-name">Rightway <span>Systems</span></div>
+    <div class="founded-badge">Est. 2010</div>
+
+    <!-- Left section -->
+    <div class="left-section">
+      <div class="main-heading">
+        Pakistan's <em>Enterprise</em><br>Software Partner
+      </div>
+      <div class="sub-mono">Since 2010 · ERP · ZATCA · AI Automation · Cloud</div>
+    </div>
+
+    <!-- Vertical divider -->
+    <div class="divider"></div>
+
+    <!-- Right section — stat pills -->
+    <div class="right-section">
+      <div class="stat-pill">
+        <div class="stat-value">500+</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-value">100+</div>
+        <div class="stat-label">Enterprise Clients</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-value">15+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+
+    <!-- Bottom elements -->
+    <div class="bottom-bar"></div>
+    <div class="url-tag">rightapps.net</div>
+  </div>
+</body>
+</html>

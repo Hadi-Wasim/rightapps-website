@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter+Tight:wght@300;400;600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 300px; height: 600px; overflow: hidden; background: #0d1017; }
+
+  .banner {
+    width: 300px; height: 600px;
+    background: #0d1017;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+
+  /* Subtle dot grid overlay */
+  .dot-grid {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(141,89,255,0.15) 1px, transparent 1px);
+    background-size: 22px 22px;
+    pointer-events: none; z-index: 0;
+  }
+
+  /* Large purple radial glow — top center */
+  .top-glow {
+    position: absolute; top: -110px; left: 50%;
+    transform: translateX(-50%);
+    width: 340px; height: 340px;
+    background: radial-gradient(ellipse,
+      rgba(141,89,255,0.3) 0%,
+      rgba(141,89,255,0.1) 45%,
+      transparent 70%);
+    pointer-events: none; z-index: 1;
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+  @keyframes glowPulse { 0%, 100% { opacity: .75 } 50% { opacity: 1 } }
+
+  /* ─── TOP SECTION: 200px ─── */
+  .top-section {
+    height: 200px; flex-shrink: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; z-index: 2;
+    gap: 4px;
+  }
+  .big-number {
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 110px;
+    color: #219ebc; line-height: 0.86;
+    text-shadow:
+      0 0 30px rgba(141,89,255,0.7),
+      0 0 70px rgba(141,89,255,0.3),
+      0 0 120px rgba(141,89,255,0.15);
+    letter-spacing: -0.03em;
+  }
+  .years-label {
+    font-family: 'Sora', sans-serif; font-weight: 300; font-size: 22px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ─── DIVIDERS ─── */
+  .divider {
+    height: 1px; flex-shrink: 0; margin: 0 22px;
+    background: linear-gradient(to right, transparent, rgba(141,89,255,0.5), transparent);
+    position: relative; z-index: 2;
+  }
+
+  /* ─── MIDDLE SECTION: remaining flex space ─── */
+  .middle-section {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 18px 28px;
+    position: relative; z-index: 2; gap: 10px;
+  }
+  .stat-row { display: flex; flex-direction: column; gap: 2px; }
+  .stat-number {
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 44px;
+    color: rgba(255,255,255,0.9); line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-family: 'Inter Tight', sans-serif; font-weight: 300; font-size: 12px;
+    color: rgba(255,255,255,0.55); letter-spacing: 0.01em;
+  }
+
+  /* ─── BOTTOM SECTION: 165px ─── */
+  .bottom-section {
+    height: 165px; flex-shrink: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 0 20px 14px; gap: 11px;
+    position: relative; z-index: 2;
+  }
+  .bottom-headline {
+    font-family: 'Sora', sans-serif; font-weight: 400; font-size: 13.5px;
+    color: rgba(255,255,255,0.78);
+    text-align: center; line-height: 1.5;
+  }
+  .cta-btn {
+    display: block; width: 100%;
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 13px;
+    color: #fff;
+    background: linear-gradient(135deg, #219ebc 0%, #6B3FD6 100%);
+    border: none; border-radius: 8px; padding: 12px;
+    text-align: center; cursor: pointer;
+    box-shadow: 0 4px 22px rgba(141,89,255,0.38);
+  }
+  .url {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 300; font-size: 9px;
+    color: rgba(255,255,255,0.28); letter-spacing: 0.07em;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="dot-grid"></div>
+  <div class="top-glow"></div>
+
+  <!-- TOP: 15 Years -->
+  <div class="top-section">
+    <div class="big-number">15</div>
+    <div class="years-label">Years</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- MIDDLE: Stats -->
+  <div class="middle-section">
+    <div class="stat-row">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-number">100+</div>
+      <div class="stat-label">Enterprise Clients</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-number">95%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BOTTOM: CTA -->
+  <div class="bottom-section">
+    <div class="bottom-headline">Pakistan's #1 Enterprise<br>Software Partner</div>
+    <div class="cta-btn">Start a Project</div>
+    <div class="url">rightapps.net</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter+Tight:wght@300;400;600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 336px; height: 280px; overflow: hidden; background: #0d1017; }
+
+  .banner {
+    width: 336px; height: 280px;
+    background: #0d1017;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 15px 16px 11px;
+  }
+
+  /* Blue-to-purple top-right glow */
+  .glow-tr {
+    position: absolute; top: -70px; right: -70px;
+    width: 260px; height: 260px;
+    background: radial-gradient(ellipse,
+      rgba(34,126,255,0.2) 0%,
+      rgba(141,89,255,0.14) 40%,
+      transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+  @keyframes glowPulse { 0%, 100% { opacity: .7 } 50% { opacity: 1 } }
+
+  /* Neural net SVG */
+  .neural-net {
+    position: absolute; right: 2px; top: 32px;
+    width: 152px; height: 170px; pointer-events: none; z-index: 0;
+  }
+
+  /* AI-POWERED badge */
+  .badge {
+    display: inline-flex; align-items: center;
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 8px;
+    letter-spacing: 0.12em; color: #219ebc;
+    border: 1px solid rgba(141,89,255,0.45);
+    border-radius: 4px; padding: 3px 8px;
+    margin-bottom: 9px; position: relative; z-index: 1; width: fit-content;
+  }
+
+  .headline {
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 23px;
+    color: rgba(255,255,255,0.9); line-height: 1.15;
+    margin-bottom: 6px; position: relative; z-index: 1; max-width: 178px;
+  }
+  .subtext {
+    font-family: 'Inter Tight', sans-serif; font-weight: 300; font-size: 11.5px;
+    color: rgba(255,255,255,0.6);
+    position: relative; z-index: 1; max-width: 178px; flex: 1;
+  }
+
+  /* Stats pills */
+  .stats-row {
+    display: flex; gap: 7px; margin-bottom: 10px;
+    position: relative; z-index: 1;
+  }
+  .pill {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 8px;
+    color: rgba(255,255,255,0.82);
+    padding: 3px 8px; border-radius: 20px; white-space: nowrap;
+  }
+  .pill-blue   { background: rgba(34,126,255,0.12); border: 1px solid rgba(34,126,255,0.32); }
+  .pill-purple { background: rgba(141,89,255,0.12); border: 1px solid rgba(141,89,255,0.32); }
+
+  /* CTA */
+  .cta-btn {
+    display: block; width: 100%;
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 12px;
+    color: #fff;
+    background: linear-gradient(135deg, #219ebc 0%, #6B3FD6 100%);
+    border: none; border-radius: 7px; padding: 9px 12px;
+    text-align: center; cursor: pointer; position: relative; z-index: 1;
+    box-shadow: 0 4px 18px rgba(141,89,255,0.3);
+  }
+  .url {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 300; font-size: 8px;
+    color: rgba(255,255,255,0.28); text-align: center;
+    margin-top: 6px; position: relative; z-index: 1; letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="glow-tr"></div>
+
+  <!-- Abstract neural network — CSS/SVG, no external images -->
+  <svg class="neural-net" viewBox="0 0 152 170" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="2.5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <radialGradient id="dotGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#227EFF" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#219ebc" stop-opacity="0.6"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Connections: L1 → L2 -->
+    <line x1="18" y1="28"  x2="64" y2="52"  stroke="rgba(141,89,255,0.22)" stroke-width="1"/>
+    <line x1="18" y1="28"  x2="64" y2="108" stroke="rgba(141,89,255,0.12)" stroke-width="1"/>
+    <line x1="18" y1="85"  x2="64" y2="52"  stroke="rgba(141,89,255,0.22)" stroke-width="1"/>
+    <line x1="18" y1="85"  x2="64" y2="108" stroke="rgba(141,89,255,0.22)" stroke-width="1"/>
+    <line x1="18" y1="138" x2="64" y2="52"  stroke="rgba(141,89,255,0.12)" stroke-width="1"/>
+    <line x1="18" y1="138" x2="64" y2="108" stroke="rgba(141,89,255,0.22)" stroke-width="1"/>
+
+    <!-- Connections: L2 → L3 -->
+    <line x1="64" y1="52"  x2="110" y2="32"  stroke="rgba(34,126,255,0.22)" stroke-width="1"/>
+    <line x1="64" y1="52"  x2="110" y2="83"  stroke="rgba(34,126,255,0.26)" stroke-width="1"/>
+    <line x1="64" y1="52"  x2="110" y2="132" stroke="rgba(34,126,255,0.12)" stroke-width="1"/>
+    <line x1="64" y1="108" x2="110" y2="32"  stroke="rgba(34,126,255,0.12)" stroke-width="1"/>
+    <line x1="64" y1="108" x2="110" y2="83"  stroke="rgba(34,126,255,0.26)" stroke-width="1"/>
+    <line x1="64" y1="108" x2="110" y2="132" stroke="rgba(34,126,255,0.22)" stroke-width="1"/>
+
+    <!-- Connections: L3 → L4 -->
+    <line x1="110" y1="32"  x2="144" y2="62"  stroke="rgba(141,89,255,0.22)" stroke-width="1"/>
+    <line x1="110" y1="83"  x2="144" y2="62"  stroke="rgba(141,89,255,0.28)" stroke-width="1"/>
+    <line x1="110" y1="83"  x2="144" y2="115" stroke="rgba(141,89,255,0.28)" stroke-width="1"/>
+    <line x1="110" y1="132" x2="144" y2="115" stroke="rgba(141,89,255,0.22)" stroke-width="1"/>
+
+    <!-- Layer 1 nodes -->
+    <circle cx="18" cy="28"  r="3.5" fill="rgba(141,89,255,0.55)"/>
+    <circle cx="18" cy="85"  r="3.5" fill="rgba(141,89,255,0.55)"/>
+    <circle cx="18" cy="138" r="3.5" fill="rgba(141,89,255,0.55)"/>
+
+    <!-- Layer 2 nodes -->
+    <circle cx="64" cy="52"  r="4.5" fill="#219ebc" opacity=".72"/>
+    <circle cx="64" cy="108" r="4.5" fill="#219ebc" opacity=".72"/>
+
+    <!-- Layer 3 nodes — center node glows -->
+    <circle cx="110" cy="83" r="14" fill="rgba(34,126,255,0.07)"/>
+    <circle cx="110" cy="32"  r="3.5" fill="rgba(34,126,255,0.65)"/>
+    <circle cx="110" cy="83"  r="6.5" fill="url(#dotGrad)" filter="url(#nodeGlow)"/>
+    <circle cx="110" cy="132" r="3.5" fill="rgba(34,126,255,0.65)"/>
+
+    <!-- Layer 4 nodes -->
+    <circle cx="144" cy="62"  r="3.5" fill="rgba(141,89,255,0.52)"/>
+    <circle cx="144" cy="115" r="3.5" fill="rgba(141,89,255,0.52)"/>
+  </svg>
+
+  <div class="badge">AI-POWERED</div>
+  <div class="headline">Business<br>Automation</div>
+  <div class="subtext">Chatbots, LLM &amp; Smart Workflows</div>
+
+  <div class="stats-row">
+    <div class="pill pill-blue">60% Cost Reduction</div>
+    <div class="pill pill-purple">95% Satisfaction</div>
+  </div>
+
+  <div class="cta-btn">Explore AI Solutions →</div>
+  <div class="url">rightapps.net</div>
+</div>
+</body>
+</html>

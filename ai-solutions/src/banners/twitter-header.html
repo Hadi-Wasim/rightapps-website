@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter+Tight:wght@300;400;600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1500px; height: 500px; overflow: hidden; background: #0d1017; }
+
+  .banner {
+    width: 1500px; height: 500px;
+    background: #0d1017;
+    position: relative; overflow: hidden;
+  }
+
+  /* ── Background layers ── */
+  .hex-bg {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 0;
+  }
+
+  /* Large purple aurora spreading from center */
+  .aurora {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1100px; height: 620px;
+    background: radial-gradient(ellipse at center,
+      rgba(141,89,255,0.22) 0%,
+      rgba(34,126,255,0.1) 30%,
+      rgba(141,89,255,0.06) 55%,
+      transparent 70%);
+    pointer-events: none; z-index: 1;
+    animation: auroraGlow 4s ease-in-out infinite;
+  }
+  @keyframes auroraGlow { 0%, 100% { opacity: .75 } 50% { opacity: 1 } }
+
+  /* Secondary warm glow — left */
+  .aurora-left {
+    position: absolute; top: 50%; left: 0;
+    transform: translateY(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(ellipse at left center,
+      rgba(141,89,255,0.1) 0%, transparent 65%);
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ── Layout ── */
+  .layout {
+    position: absolute; inset: 0;
+    display: flex; align-items: stretch; z-index: 2;
+  }
+
+  /* LEFT — 375px */
+  .left {
+    width: 375px; flex-shrink: 0;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 0 44px 0 62px;
+  }
+  .brand-name {
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 36px;
+    color: #fff; line-height: 1.06;
+    margin-bottom: 12px; letter-spacing: -0.015em;
+  }
+  .brand-url {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 300; font-size: 14px;
+    color: rgba(255,255,255,0.38);
+    margin-bottom: 16px; letter-spacing: 0.03em;
+  }
+  .brand-badge {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 300; font-size: 10px;
+    color: rgba(255,255,255,0.22); letter-spacing: 0.09em;
+  }
+
+  /* Vertical separator */
+  .vsep {
+    width: 1px; flex-shrink: 0;
+    background: linear-gradient(to bottom,
+      transparent 8%,
+      rgba(141,89,255,0.45) 35%,
+      rgba(141,89,255,0.45) 65%,
+      transparent 92%);
+    align-self: stretch;
+  }
+
+  /* CENTER — flex 1 (≈750px) */
+  .center {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 0 76px;
+  }
+  .main-headline {
+    font-family: 'Sora', sans-serif; font-weight: 300; font-size: 52px;
+    color: rgba(255,255,255,0.9); line-height: 1.06;
+    margin-bottom: 22px; letter-spacing: -0.025em;
+  }
+  .sub-headline {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 300; font-size: 14px;
+    color: rgba(255,255,255,0.38); letter-spacing: 0.06em;
+  }
+
+  /* RIGHT — 375px */
+  .right {
+    width: 375px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 42px 0 32px;
+  }
+  .service-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; width: 100%;
+  }
+  .service-card {
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(141,89,255,0.2);
+    border-radius: 8px; padding: 16px 14px;
+    display: flex; flex-direction: column;
+    transition: border-color 0.3s;
+  }
+  .svc-icon {
+    font-size: 18px; margin-bottom: 7px; display: block; line-height: 1;
+  }
+  .svc-label {
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 12.5px;
+    color: rgba(255,255,255,0.85); line-height: 1.25; margin-bottom: 4px;
+  }
+  .svc-sub {
+    font-family: 'Inter Tight', sans-serif; font-weight: 300; font-size: 10px;
+    color: rgba(255,255,255,0.38);
+  }
+
+  /* Bottom gradient bar */
+  .bottom-bar {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(to right, #219ebc, #227EFF);
+    z-index: 3;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+
+  <!-- Hexagon pattern + horizontal lines — all inline SVG, no external files -->
+  <svg class="hex-bg" width="1500" height="500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="hexPat" x="0" y="0" width="62" height="54" patternUnits="userSpaceOnUse">
+        <polygon
+          points="31,1 59,16 59,38 31,53 3,38 3,16"
+          fill="none" stroke="rgba(141,89,255,0.09)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="1500" height="500" fill="url(#hexPat)"/>
+    <!-- Subtle horizontal lines -->
+    <line x1="0" y1="100" x2="1500" y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1500" y2="200" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1500" y2="300" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1500" y2="400" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  </svg>
+
+  <div class="aurora"></div>
+  <div class="aurora-left"></div>
+
+  <div class="layout">
+
+    <!-- LEFT: Brand -->
+    <div class="left">
+      <div class="brand-name">Rightway<br>Systems</div>
+      <div class="brand-url">rightapps.net</div>
+      <div class="brand-badge">EST. 2010 · LAHORE, PAKISTAN</div>
+    </div>
+
+    <div class="vsep"></div>
+
+    <!-- CENTER: Headline -->
+    <div class="center">
+      <div class="main-headline">Building Pakistan's<br>Digital Future</div>
+      <div class="sub-headline">ERP · ZATCA · AI · Cloud · 2010–Present</div>
+    </div>
+
+    <div class="vsep"></div>
+
+    <!-- RIGHT: Services grid -->
+    <div class="right">
+      <div class="service-grid">
+        <div class="service-card">
+          <span class="svc-icon">⚙️</span>
+          <div class="svc-label">ERP Systems</div>
+          <div class="svc-sub">Custom-built</div>
+        </div>
+        <div class="service-card">
+          <span class="svc-icon">📋</span>
+          <div class="svc-label">ZATCA Compliance</div>
+          <div class="svc-sub">Phase 2 ready</div>
+        </div>
+        <div class="service-card">
+          <span class="svc-icon">🤖</span>
+          <div class="svc-label">AI Automation</div>
+          <div class="svc-sub">LLM &amp; chatbots</div>
+        </div>
+        <div class="service-card">
+          <span class="svc-icon">☁️</span>
+          <div class="svc-label">Cloud &amp; DevOps</div>
+          <div class="svc-sub">AWS · Azure</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-bar"></div>
+</div>
+</body>
+</html>

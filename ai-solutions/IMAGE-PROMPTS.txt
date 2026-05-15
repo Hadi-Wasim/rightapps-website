@@ -1,0 +1,737 @@
+================================================================================
+  RIGHTWAY SYSTEMS — AI IMAGE GENERATION PROMPTS
+  Website: rightapps.net | Generated: 2026-05-02
+  Brand Colors: Navy #023048 · Deep Blue #023E8A · Teal #219ebc
+  
+  HOW TO USE:
+  - Generate each image with your preferred AI tool (Midjourney, DALL·E, Firefly)
+  - Add the Rightway Systems logo AFTER generating (overlay in Figma / Photoshop)
+  - Save each file to: ai-solutions/images/ using the filename shown
+  - Gradient/decorative files (opai-*.png gradient files) are NOT listed here
+    because they are abstract overlays already in the project
+================================================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 1 — HOME PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-96.png
+SIZE:    200 × 130 px  (small thumbnail inside a rounded play button)
+SECTION: Hero — video play button overlay
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Close-up cinematic still of a modern enterprise software team at work in a
+  clean Pakistani tech office, soft ambient lighting, multiple monitors showing
+  dashboard interfaces, blurred background bokeh, warm professional atmosphere.
+  No text or logos visible. Ultra-high quality photograph, 16:9 crop, slightly
+  dark exposure for video-thumbnail overlay effect.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-95.png
+SIZE:    1223 × 573 px  (MAIN hero section — wide dashboard mockup)
+SECTION: Hero — hero section large feature image below the headline
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Ultra-wide enterprise ERP software dashboard screenshot mockup, dark navy
+  (#023048) background. Multiple panels: sales analytics chart (bar + line),
+  inventory status table, pending purchase orders list, financial KPI cards
+  showing revenue and profit metrics, and a real-time notification feed.
+  Clean modern UI with teal (#219ebc) accent color on charts and buttons,
+  white text on dark cards, subtle grid lines. Left sidebar navigation visible.
+  No readable text — all labels are blurred/placeholder glyphs. Professional
+  enterprise software interface. 16:9 widescreen. Photorealistic UI mockup,
+  high resolution.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-22.jpg
+SIZE:    700 × 540 px  (nav "What's New" banner image)
+SECTION: Header — dropdown "What's New" promotional image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Modern enterprise software product announcement graphic — abstract 3D
+  isometric illustration of connected data nodes, glowing circuits on a deep
+  navy (#023048) background, with teal (#219ebc) light streaks and floating
+  UI card elements. Futuristic tech aesthetic, no text, clean composition.
+  Professional product launch visual. High quality digital illustration.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-94.png
+SIZE:    502 × 400 px  (Empowering Business section — ZATCA/compliance card)
+SECTION: Home — "Empowering Business" section, right-side compliance card
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Close-up UI screenshot mockup of a ZATCA e-invoicing and FBR compliance
+  dashboard. Shows a digital invoice with QR code placeholder, Arabic-style
+  layout fields (blurred/unreadable), compliance status badge (green checkmark),
+  XML data stream panel on the side, and a "Phase 2 Certified" indicator badge.
+  Dark card interface with teal accent (#219ebc), professional enterprise
+  software aesthetic. No readable text. 4:3 aspect. High quality UI mockup.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-97.png
+SIZE:    400 × 320 px  (Our Impact section — project screenshot card 1)
+SECTION: Home — "Trusted by Enterprise Leaders" section, stacked card (top-right)
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  UI screenshot of an ERP inventory management module. Shows a warehouse
+  stock table with item codes, quantities, and status indicators. Dark navy
+  background with subtle grid, teal accent color on highlighted rows, search
+  bar at top. Pakistani textile or manufacturing context. Blurred unreadable
+  text/numbers. Slightly tilted (-12 degrees). Professional enterprise UI.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-98.png
+SIZE:    400 × 320 px  (Our Impact section — project screenshot card 2)
+SECTION: Home — "Trusted by Enterprise Leaders" section, stacked card (center)
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  UI screenshot of a financial reporting dashboard showing a monthly profit/loss
+  chart (area graph with teal gradient fill), summary KPI cards (revenue,
+  expenses, net profit), and a mini data table below. Dark interface, white
+  text, clean professional enterprise software aesthetic. Numbers and labels
+  blurred/unreadable. Slightly rotated (-8 degrees). High quality UI mockup.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-99.png
+SIZE:    400 × 320 px  (Our Impact section — project screenshot card 3)
+SECTION: Home — "Trusted by Enterprise Leaders" section, stacked card (bottom-right)
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  UI screenshot of an AI chatbot interface for enterprise customer support.
+  Shows a chat window with message bubbles (user and AI), quick reply buttons,
+  a typing indicator, and a sentiment analytics mini panel. Dark interface,
+  teal (#219ebc) user bubbles, white AI responses. Blurred/placeholder text.
+  Rotated (+12 degrees). Professional enterprise AI SaaS UI mockup.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-117.jpg
+SIZE:    1200 × 500 px  (Portfolio card 1 — full-width)
+SECTION: Home — "Delivering Real Impact" portfolio section, project 1
+         Project: Multi-Branch ERP for Textile Group
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide-angle photograph of a modern Pakistani textile manufacturing facility
+  — large industrial looms in the background with workers, overlaid with a
+  semi-transparent ERP dashboard UI showing production planning and order
+  management screens. Dark overlay on left side for text readability. Moody
+  industrial atmosphere with professional lighting. No visible text. Cinematic
+  wide aspect ratio 12:5. High quality editorial photograph.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-118.jpg
+SIZE:    1200 × 500 px  (Portfolio card 2 — full-width)
+SECTION: Home — Portfolio section, project 2
+         Project: ZATCA Phase 2 e-Invoicing for Saudi Retail Chain
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide cinematic shot of a modern Saudi retail store interior — clean white
+  shelves with products, POS terminal at checkout counter, overlaid with a
+  transparent ZATCA e-invoice UI showing QR code placeholder and invoice lines.
+  Warm retail store lighting, modern interior design. No readable text. Dark
+  gradient overlay on left. 12:5 wide aspect. High quality editorial photograph.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-119.jpg
+SIZE:    1200 × 500 px  (Portfolio card 3 — full-width)
+SECTION: Home — Portfolio section, project 3
+         Project: LMS Platform for Pakistani University
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide-angle photograph of a university lecture hall in Pakistan — rows of
+  students on laptops and tablets, modern classroom with large projection screen
+  showing a digital learning interface. Overlaid with a semi-transparent LMS
+  dashboard showing course progress bars and assignment modules. Bright
+  educational atmosphere. No readable text. 12:5 wide aspect. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-120.jpg
+SIZE:    360 × 406 px  (CTA v2 section — right device mockup)
+SECTION: Home/About — "Let AI Handle the Heavy Work" CTA section
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Vertical smartphone screen mockup showing an AI chatbot mobile app interface
+  — clean dark navy background phone screen, teal (#219ebc) chat bubbles, an
+  AI assistant reply, and a typing indicator at bottom. Modern enterprise
+  mobile app. The phone is held naturally at a slight angle. No readable text
+  on screen. High quality product photography, isolated on transparent or
+  dark background. Portrait 9:16 crop.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-121.jpg
+SIZE:    317 × 345 px  (CTA v2 section — center device mockup, rotated -15°)
+SECTION: Home/About — CTA section, middle overlapping image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Vertical smartphone screen showing an ERP mobile dashboard — dark interface
+  with bar charts for sales performance, a quick stats row (revenue, orders,
+  alerts), and a navigation bar at bottom with icons. Teal accent color on
+  charts. Modern enterprise mobile app aesthetic. No readable text. High
+  quality product mockup. Portrait orientation, square-ish crop 4:5.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-122.jpg
+SIZE:    226 × 261 px  (CTA v2 section — left device mockup, rotated -30°)
+SECTION: Home/About — CTA section, leftmost overlapping image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Vertical tablet or phone showing a ZATCA invoice mobile screen — digital
+  invoice document view with QR code placeholder, line items, and a green
+  "Compliant" badge. Clean white-on-dark interface. No readable text or
+  numbers. Professional enterprise mobile app. Portrait orientation 7:9 crop.
+  High quality mockup.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 2 — TESTIMONIAL AVATARS  (Used on Home & multiple pages)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  All avatars: 96 × 96 px each (displayed at 48×48, saved @2x for retina)
+  These are enterprise B2B client representatives.
+  Make each person visually distinct — vary gender, age, ethnicity
+  (Pakistani, Saudi, Emirati, Indian, Pakistani-British mix).
+  Use professional neutral backgrounds or office blur.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-01.png
+PERSON:  Sana Mirza — CFO, Pakistani female, late 30s
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Professional headshot portrait of a Pakistani businesswoman in her late 30s,
+  confident natural smile, hijab optional, wearing a tailored blazer. Clean
+  blurred office background. Soft studio lighting. Close-up face and shoulders
+  crop. High quality professional business photography. 1:1 square format.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-02.png
+PERSON:  Omar Al-Farsi — IT Director, Saudi male, mid 40s
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Professional headshot portrait of a Saudi Arab businessman in his mid 40s,
+  wearing a white thobe or smart business suit, well-groomed beard, confident
+  expression. Clean blurred modern office background. Soft directional lighting.
+  Close-up face and shoulders crop. High quality professional photography. 1:1.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-03.png
+PERSON:  Tariq Mahmood — Operations Director, Pakistani male, early 40s
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Professional headshot portrait of a Pakistani man in his early 40s, short
+  dark hair, clean-shaven or light beard, wearing a dark navy collared shirt
+  or suit jacket. Confident professional expression. Blurred office background.
+  Soft studio lighting. Face and shoulders 1:1 square crop. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-04.png
+PERSON:  Fatima Al-Rashidi — Digital Transformation Lead, Emirati female, 30s
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Professional headshot portrait of an Emirati or Gulf Arab businesswoman in
+  her early 30s, wearing a black abaya with colorful hijab or modern business
+  attire, warm professional smile. Blurred modern office or UAE skyline
+  background. Soft lighting. 1:1 square close-up portrait. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-05.png
+PERSON:  Hassan Raza — ERP Project Manager, Pakistani male, mid 30s
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Professional headshot portrait of a Pakistani man in his mid 30s, casual
+  business look, light stubble, wearing a business casual shirt or sweater.
+  Friendly approachable expression. Blurred tech office background. Natural
+  studio lighting. 1:1 square crop face and shoulders. High quality photo.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 3 — ABOUT PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-473.jpg
+SIZE:    1264 × 664 px  (About page hero — full-width team banner)
+SECTION: About — hero section, large feature image below headline
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide-angle professional photograph of a Pakistani software development
+  team of 8-10 people gathered in a modern open-plan tech office in Lahore.
+  Mix of male and female engineers, some standing around monitor setups,
+  some seated at desks with dual monitors, casual business attire. Warm
+  office lighting, plants, whiteboards with diagrams in the background.
+  Candid collaborative atmosphere. No visible text on screens. Cinematic
+  wide 19:10 ratio. High quality editorial team photography.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-474.jpg
+SIZE:    495 × 445 px  (About page — "How Rightway Systems was built" section)
+SECTION: About — born-info/company history section, right-side image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Authentic photograph of a small Pakistani startup tech office circa 2010-2015
+  — 2-3 young developers working at desktop computers with CRT or early LCD
+  monitors, whiteboard covered in code diagrams, humble but focused atmosphere.
+  Warm tungsten office lighting. Nostalgic yet professional feel. No readable
+  text. 1:1 near-square crop. High quality documentary photography style.
+
+────────────────────────────────────────────────────────────────────────────────
+FILES:   images/opai-avatar-img-09.png  through  images/opai-avatar-img-12.png
+SIZE:    72 × 72 px each  (displayed at 36×36 in overlapping avatar stack)
+SECTION: About / Services — "Trusted by 100+ clients" avatar group
+────────────────────────────────────────────────────────────────────────────────
+PROMPT (generate 4 variations):
+  Professional headshot portrait, close-up face only. Make each unique:
+  [09] Young Pakistani male developer, early 20s, glasses, friendly smile.
+  [10] Pakistani female professional, 30s, dupatta or hijab, warm expression.
+  [11] Middle-aged South Asian male manager, 40s, formal shirt, confident look.
+  [12] South Asian female, 30s, modern business casual, bright smile.
+  All: white or light grey background, 1:1 square, high quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-281.jpg
+SIZE:    400 × 400 px  (Team card — displayed 387×395 px)
+SECTION: About — Meet the Team, card 1: Lead ERP Engineer
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Full upper-body professional portrait of a Pakistani male software engineer
+  in his early 30s, Lead ERP Engineer role. Wearing a smart dark navy collared
+  shirt or blazer. Confident, professional expression. Shot in a modern tech
+  office with blurred monitors and server racks in background. Soft side
+  lighting. Near-square portrait crop (head to mid-torso). High quality.
+  No logos or text visible.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-282.jpg
+SIZE:    400 × 400 px  (Team card — AI Solutions Architect)
+SECTION: About — Meet the Team, card 2: AI Solutions Architect
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Full upper-body professional portrait of a Pakistani male software engineer
+  in his late 20s, AI/ML specialist look. Smart casual — dark turtleneck or
+  technical shirt. Thoughtful, innovative expression. Modern office background
+  with laptop and code on monitors blurred. Natural light from window + soft
+  fill. Near-square portrait. High quality professional photograph.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-283.jpg
+SIZE:    400 × 400 px  (Team card — ZATCA Compliance Specialist)
+SECTION: About — Meet the Team, card 3: ZATCA Compliance Specialist
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Full upper-body professional portrait of a Pakistani male professional in
+  his late 30s, compliance/finance specialist. Wearing a formal business shirt
+  with tie or smart blazer. Serious but approachable expression. Clean modern
+  office background with blurred whiteboard. Professional studio lighting.
+  Near-square portrait crop. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-284.jpg
+SIZE:    400 × 400 px  (Team card — Full-Stack Lead)
+SECTION: About — Meet the Team, card 4: Full-Stack Lead Developer
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Full upper-body professional portrait of a Pakistani male developer in
+  his early 30s, Full-Stack Lead. Wearing a casual-smart dark hoodie or
+  technical jacket. Energetic, confident expression. Modern co-working space
+  background with plants and desk setup blurred. Good ambient lighting.
+  Near-square portrait crop. High quality professional photograph.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-285.jpg
+SIZE:    400 × 400 px  (Team card — Cloud & DevOps Engineer)
+SECTION: About — Meet the Team, card 5: Cloud & DevOps Engineer
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Full upper-body professional portrait of a Pakistani male engineer in his
+  mid 30s, DevOps/cloud specialist. Wearing smart technical wear or button
+  shirt, possibly headphones around neck. Focused, competent expression.
+  Server room or modern data center background blurred. Dramatic side lighting.
+  Near-square portrait crop. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-avatar-img-286.jpg
+SIZE:    400 × 400 px  (Team card — Mobile & Frontend Lead)
+SECTION: About — Meet the Team, card 6: Mobile & Frontend Lead
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Full upper-body professional portrait of a Pakistani female software
+  engineer in her late 20s, Mobile & Frontend Lead. Wearing smart business
+  casual — blazer over colourful top, optional hijab. Holding a smartphone.
+  Warm confident expression. Modern bright office with plants in background,
+  blurred. Soft natural lighting. Near-square portrait crop. High quality.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 4 — PORTFOLIO / PROJECTS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  All portfolio thumbnails: 800 × 500 px, displayed full-width in cards.
+  Style guide: Dark overlay on the bottom third, slightly desaturated photo
+  with a teal or navy color grade. No text in the actual image.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-480.jpg
+SIZE:    800 × 500 px
+SECTION: Projects — ERP System for Retail Chain
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a modern Pakistani retail chain store — rows of product
+  shelves, well-lit interior, POS checkout counter visible. Overlaid with a
+  subtle ERP dashboard UI showing sales figures and inventory levels (blurred,
+  unreadable). Teal and navy color grade. No readable text. 16:10 aspect.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-481.jpg
+SIZE:    800 × 500 px
+SECTION: Projects — ZATCA-Compliant e-Invoicing Platform
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a Saudi business office environment — professional desk
+  setup with dual monitors showing a blurred invoice interface, Saudi national
+  flag or Riyadh skyline visible through window. Warm professional lighting.
+  Subtle teal color grade overlay. No readable text or identifiable logos.
+  16:10 aspect. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-482.jpg
+SIZE:    800 × 500 px
+SECTION: Projects — AI-Powered Financial Automation
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide abstract editorial photograph representing financial AI automation —
+  a finance professional's desk with laptop showing blurred graph analytics,
+  calculator, documents, and a holographic-style AI data visualization overlay.
+  Dark moody lighting with teal and blue glow effects. No readable text.
+  16:10 aspect. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-483.jpg
+SIZE:    800 × 500 px
+SECTION: Projects — LMS for University Network
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a modern university campus in Pakistan — students in a
+  computer lab working on laptops, large projector screen showing a blurred
+  LMS interface. Bright educational lighting, collaborative atmosphere.
+  Subtle blue-teal color grade. No readable text. 16:10 aspect. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-484.jpg
+SIZE:    800 × 500 px
+SECTION: Projects — CMS for Government Portal
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a formal government or civic building in Pakistan —
+  clean modern architecture, slight digital overlay suggesting a web portal
+  interface with blurred document management screens. Professional and
+  institutional feel. Navy and teal color grade. No readable text. 16:10.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-485.jpg
+SIZE:    800 × 500 px
+SECTION: Projects — Supply Chain ERP — Manufacturing
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a Pakistani manufacturing or logistics warehouse —
+  forklifts moving inventory, organized shelving systems, workers with
+  tablets/scanners. Subtle ERP supply chain flow diagram overlay (blurred).
+  Industrial atmosphere with dramatic lighting. Teal color accent. No text.
+  16:10 aspect. High quality editorial.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-486.jpg
+SIZE:    800 × 500 px
+SECTION: Projects — HR & Payroll System — Dubai
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a modern corporate office in Dubai or UAE — glass-walled
+  meeting room, diverse professional team in a meeting, Dubai skyline visible
+  through floor-to-ceiling windows. Subtle HR dashboard overlay (blurred
+  employee profiles and payroll chart). Blue-teal color grade. No text. 16:10.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-487.jpg
+SIZE:    800 × 500 px
+SECTION: Projects — AI Customer Support Automation
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a modern customer support center — agents at workstations
+  with headsets, large wall-mounted screen showing blurred AI analytics
+  dashboard. Teal and navy tone, futuristic AI atmosphere with subtle
+  circuit-board light patterns in the background. No readable text. 16:10.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 5 — PROJECT DETAILS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-488.jpg
+SIZE:    1264 × 600 px  (Project details hero — full-width)
+SECTION: Project Details — hero image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide cinematic photograph of a large enterprise software project deployment
+  — a team of Pakistani engineers in a modern open office gathered around
+  large monitors showing a live system dashboard launch. Celebratory but
+  professional atmosphere. Dramatic moody lighting, teal accent glow from
+  monitors. No readable text on screens. 21:10 ultra-wide crop. High quality.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 6 — SERVICES DETAILS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-477.jpg
+SIZE:    1264 × 580 px  (Services details hero)
+SECTION: Services Details — hero section background image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide dramatic photograph of a Pakistani software developer at a dual-monitor
+  workstation, hands on keyboard, screens showing blurred code and a software
+  architecture diagram. Dark moody background, single dramatic overhead
+  lighting, teal and blue color grade. Professional developer portrait
+  environment. No readable text. Wide 21:10 crop. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-478.jpg
+SIZE:    600 × 450 px  (Services details — feature/benefit image 1)
+SECTION: Services Details — content section, feature image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Professional photograph of two Pakistani business professionals reviewing
+  a software system on a tablet — one showing the screen to the other in a
+  bright modern meeting room. Enterprise software interface blurred/unreadable
+  on screen. Clean professional b2b consulting atmosphere. 4:3 aspect. High
+  quality business photograph.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-479.jpg
+SIZE:    600 × 450 px  (Services details — feature/benefit image 2)
+SECTION: Services Details — content section, feature image 2
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Professional photograph of a software development sprint planning session —
+  a small team of Pakistani engineers standing at a whiteboard covered in
+  sticky notes and architecture diagrams. Modern agile workspace, casual
+  business attire, collaborative energy. No readable text on whiteboard.
+  4:3 aspect. High quality editorial photograph.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 7 — CONTACT PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-471.jpg
+SIZE:    1264 × 700 px  (Contact page hero)
+SECTION: Contact — hero section, full-width background image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Aerial or ground-level wide photograph of Lahore, Pakistan — Badshahi Mosque
+  or modern commercial area at dusk/golden hour, blended with a transparent
+  overlay of a tech office workspace. Warm Pakistani cityscape with modern
+  professional tech atmosphere. Teal and navy color grade. No readable text.
+  18:10 wide aspect. High quality editorial photograph.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 8 — LOGIN PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-472.jpg
+SIZE:    800 × 900 px  (Login page — side panel background)
+SECTION: Login — hero/background side image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Tall vertical photograph — abstract dark navy technology background with a
+  glowing teal (#219ebc) network of connected nodes and circuit paths, subtly
+  suggesting enterprise software infrastructure. Clean, modern, futuristic.
+  No text. 8:9 near-square portrait aspect. High quality digital artwork.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 9 — BLOG PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Blog grid thumbnails: 800 × 430 px each (displayed xl:min-h-[430px])
+  Sidebar recent article thumbnails: 220 × 180 px each
+  Style: dark navy/tech themed, relevant to article topic, no text
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-492.jpg   (large) + images/opai-img-489.jpg  (small)
+SIZE:    800 × 430 px (grid) | 220 × 180 px (sidebar)
+ARTICLE: The Complete Guide to ZATCA Phase 2 Compliance for Saudi Businesses
+────────────────────────────────────────────────────────────────────────────────
+PROMPT (generate 2 sizes, same concept):
+  Professional photograph of a Saudi business document / digital invoice on a
+  desk with a tablet showing a compliance dashboard in the background. Saudi
+  flag visible subtly. Clean business desk environment. Teal accent lighting.
+  No readable text. Landscape format. High quality editorial business photo.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-493.jpg   (large) + images/opai-img-490.jpg  (small)
+SIZE:    800 × 430 px | 220 × 180 px
+ARTICLE: How to Choose the Right ERP System for Pakistani Manufacturing
+────────────────────────────────────────────────────────────────────────────────
+PROMPT (generate 2 sizes):
+  Wide photograph of a Pakistani manufacturing floor — machinery in operation,
+  a factory manager with tablet reviewing production data. Industrial setting
+  with warm lighting. ERP dashboard subtle overlay blurred on tablet screen.
+  Navy and teal color grade. No text. Landscape format. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-496.jpg   (large) + images/opai-img-491.jpg  (small)
+SIZE:    800 × 430 px | 220 × 180 px
+ARTICLE: How AI Chatbots Are Transforming Pakistani Business Operations
+────────────────────────────────────────────────────────────────────────────────
+PROMPT (generate 2 sizes):
+  Abstract digital illustration of an AI chatbot interaction — glowing chat
+  bubbles emanating from a stylized robot/brain icon on a dark navy background.
+  Teal (#219ebc) accent on the AI responses. Futuristic, clean, no text.
+  Landscape format. High quality digital illustration.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-494.jpg
+SIZE:    800 × 430 px
+ARTICLE: Top 10 Software Houses in Pakistan: A Comprehensive Comparison
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Aerial photograph of modern Lahore city skyline — DHA or Gulberg commercial
+  district at dusk, tall office buildings with lit windows. Overlaid with a
+  subtle tech grid pattern in teal. Professional editorial feel. No text.
+  Landscape 16:9 format. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-495.jpg
+SIZE:    800 × 430 px
+ARTICLE: Custom LMS vs Off-the-Shelf: What's Right for Your Institution?
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a modern Pakistani university campus — students in a
+  technology-equipped lecture hall, bright educational environment, a large
+  screen showing a blurred LMS course interface. Warm academic atmosphere.
+  Blue-teal color grade. No text. Landscape 16:9. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-497.jpg
+SIZE:    800 × 430 px
+ARTICLE: Python vs PHP for Enterprise Web Development
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Close-up photograph of a developer's monitor showing clean code in a dark
+  IDE editor — recognizable Python and PHP syntax (blurred/unreadable), teal
+  and white syntax highlighting on a dark background. Coffee mug and laptop
+  on desk. Moody developer atmosphere. No readable text. Landscape 16:9.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-500.jpg
+SIZE:    800 × 430 px  (also used in blog-details related section)
+ARTICLE: 5 AI Tools Every Business Needs to Streamline Operations
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Abstract 3D digital illustration of 5 glowing AI tool icons — chatbot,
+  automation flow, data analytics, document processing, and scheduling —
+  arranged in a circular layout on a dark navy background. Teal glow effects.
+  Modern futuristic enterprise tech aesthetic. No text. Landscape 16:9.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-501.jpg
+SIZE:    800 × 430 px
+ARTICLE: A Beginner's Guide to Automating Workflows with AI
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Abstract illustration of a business workflow automation diagram — connected
+  boxes and arrows showing an automated pipeline (approval → invoice → notify)
+  with AI spark icons on a dark navy background. Teal connecting lines and
+  glowing nodes. Clean, minimal, no text. Landscape 16:9. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-502.jpg
+SIZE:    800 × 430 px
+ARTICLE: AI Tools for Business (alternate/duplicate slot)
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Wide photograph of a Pakistani business executive at a modern desk using
+  a laptop and phone simultaneously — productivity and efficiency theme.
+  Clean modern office, teal ambient lighting from monitor. Professional
+  business photography. No text. Landscape 16:9. High quality.
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    images/opai-img-506.jpg
+SIZE:    1200 × 500 px  (Blog-details page — featured article main image)
+SECTION: Blog Details — article header featured image
+────────────────────────────────────────────────────────────────────────────────
+PROMPT:
+  Ultra-wide editorial photograph representing enterprise AI and software
+  technology in Pakistan — a professional male developer at a modern workstation
+  with multiple screens showing blurred analytics dashboards and code. Dark
+  moody office lighting with teal screen glow. Cinematic composition. No text.
+  12:5 aspect ratio. High quality.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 10 — HERO BACKGROUND VIDEO  (Optional — currently placeholder)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+────────────────────────────────────────────────────────────────────────────────
+FILE:    video/hero-bg.mp4
+SIZE:    1920 × 1080 px  (Full-screen hero background video, muted/looping)
+SECTION: Home — hero section background video
+────────────────────────────────────────────────────────────────────────────────
+NOTE:
+  This is a VIDEO file, not an image. Current file is a placeholder.
+  You can source a royalty-free video from Pexels or Mixkit. Suggested
+  search terms:
+    - "software developer coding office Pakistan" (Pexels)
+    - "enterprise technology abstract" (Mixkit)
+    - "data center server glowing" (Pexels)
+  OR generate using Sora / Runway ML with this prompt:
+
+PROMPT:
+  Slow cinematic pan through a modern tech office at night — developers
+  working at glowing monitors, data streams visible on screens, teal and
+  navy color palette, smooth camera movement. No text visible. 5-10 seconds
+  loop. 1080p, muted, autoplay-safe.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  QUICK REFERENCE SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  TOTAL UNIQUE IMAGE FILES TO GENERATE: 44
+  
+  Priority 1 — High visibility (generate these first):
+    opai-img-95.png    Hero dashboard         1223×573
+    opai-img-473.jpg   About hero team        1264×664
+    opai-img-117.jpg   Portfolio ERP          1200×500
+    opai-img-118.jpg   Portfolio ZATCA        1200×500
+    opai-img-119.jpg   Portfolio LMS          1200×500
+    opai-img-120.jpg   CTA phone mockup 1     360×406
+    opai-img-121.jpg   CTA phone mockup 2     317×345
+    opai-img-122.jpg   CTA phone mockup 3     226×261
+
+  Priority 2 — Team & People:
+    opai-avatar-img-281 to 286  Team cards    400×400 each  (6 images)
+    opai-avatar-img-01 to 05    Testimonials  96×96 each    (5 images)
+    opai-avatar-img-09 to 12    Avatar stack  72×72 each    (4 images)
+
+  Priority 3 — Blog thumbnails:
+    opai-img-492 to 502         Blog covers   800×430 each  (9 images)
+    opai-img-489 to 491         Sidebar small 220×180 each  (3 images)
+
+  Priority 4 — Interior pages:
+    opai-img-471.jpg   Contact hero           1264×700
+    opai-img-472.jpg   Login side             800×900
+    opai-img-477.jpg   Services hero          1264×580
+    opai-img-478-479   Services content       600×450 each
+    opai-img-480-487   Projects grid          800×500 each  (8 images)
+    opai-img-488.jpg   Project details hero   1264×600
+    opai-img-506.jpg   Blog detail featured   1200×500
+
+  NOTE: Logos (gemini-svg-big-f.svg, gemini-svg.svg) — handled separately.
+  NOTE: Gradient files (opai-1.png, opai-2.png, opai-6.svg, opai-14.png etc.)
+        are DECORATIVE OVERLAYS already in the project, do NOT regenerate.
+
+================================================================================
+  END OF PROMPTS FILE — rightapps.net image generation guide
+================================================================================

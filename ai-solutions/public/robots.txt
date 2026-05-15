@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow utility/auth pages
+Disallow: /login.html
+Disallow: /signup.html
+
+# Sitemap
+Sitemap: https://www.rightapps.net/sitemap.xml

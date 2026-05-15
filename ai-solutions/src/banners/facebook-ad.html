@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>Rightway Systems — Facebook Ad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter+Tight:wght@300;400;600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #111; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.04); }
+    }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes badgePop {
+      from { opacity: 0; transform: scale(0.85); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes circuitDraw {
+      from { stroke-dashoffset: 600; }
+      to   { stroke-dashoffset: 0; }
+    }
+    @keyframes dotBlink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    .banner {
+      position: relative;
+      width: 1200px;
+      height: 628px;
+      background: #0d1017;
+      overflow: hidden;
+      font-family: 'Sora', sans-serif;
+    }
+
+    /* Mesh gradients */
+    .mesh-tl {
+      position: absolute;
+      top: -120px;
+      left: -80px;
+      width: 680px;
+      height: 520px;
+      background: radial-gradient(ellipse at 20% 30%, rgba(141,89,255,0.25) 0%, rgba(141,89,255,0.08) 40%, transparent 65%);
+      pointer-events: none;
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    .mesh-br {
+      position: absolute;
+      bottom: -100px;
+      right: -60px;
+      width: 520px;
+      height: 420px;
+      background: radial-gradient(ellipse at 80% 80%, rgba(34,126,255,0.20) 0%, rgba(34,126,255,0.06) 40%, transparent 65%);
+      pointer-events: none;
+      animation: glowPulse 7s ease-in-out 1s infinite;
+    }
+
+    /* Dot grid */
+    .dot-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(141,89,255,0.12) 1.5px, transparent 1.5px);
+      background-size: 36px 36px;
+      pointer-events: none;
+    }
+
+    /* Circuit SVG decoration — right side */
+    .circuit-svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 340px;
+      height: 628px;
+      pointer-events: none;
+    }
+
+    /* Content container — left 72% */
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 820px;
+      height: 628px;
+      padding: 54px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+    }
+
+    /* Top badge */
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      animation: badgePop 0.5s ease both;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(208,255,0,0.08);
+      border: 1px solid rgba(208,255,0,0.3);
+      border-radius: 20px;
+      padding: 6px 16px 6px 10px;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #D0FF00;
+      flex-shrink: 0;
+      animation: dotBlink 1.8s ease-in-out infinite;
+    }
+    .badge-text {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 600;
+      font-size: 11.5px;
+      letter-spacing: 0.18em;
+      color: #D0FF00;
+      text-transform: uppercase;
+    }
+    .flag-text {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.40);
+    }
+
+    /* Main headline */
+    .headline {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 58px;
+      line-height: 1.12;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+      animation: fadeSlideIn 0.6s ease 0.1s both;
+    }
+    .headline em {
+      font-style: normal;
+      color: #219ebc;
+    }
+    .headline .highlight {
+      position: relative;
+      display: inline-block;
+      color: rgba(255,255,255,0.95);
+    }
+    .headline .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, #219ebc, #227EFF);
+      border-radius: 2px;
+    }
+
+    /* Subtext */
+    .subtext {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.58);
+      max-width: 580px;
+      margin-bottom: 40px;
+      animation: fadeSlideIn 0.6s ease 0.2s both;
+    }
+    .subtext strong {
+      color: rgba(255,255,255,0.80);
+      font-weight: 600;
+    }
+
+    /* Bottom row */
+    .bottom-row {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      animation: fadeSlideIn 0.6s ease 0.35s both;
+    }
+
+    /* CTA button */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #219ebc 0%, #6b3de0 100%);
+      color: #ffffff;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.02em;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 32px rgba(141,89,255,0.4), 0 4px 16px rgba(0,0,0,0.4);
+      transition: box-shadow 0.3s ease;
+    }
+    .cta-arrow {
+      font-size: 18px;
+    }
+
+    .url-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* Vertical stats bar on far right (above circuit) */
+    .stats-col {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 628px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 0 0 32px;
+      gap: 32px;
+      z-index: 2;
+    }
+    .mini-stat {
+      animation: fadeSlideIn 0.6s ease both;
+    }
+    .mini-stat:nth-child(2) { animation-delay: 0.1s; }
+    .mini-stat:nth-child(3) { animation-delay: 0.2s; }
+    .mini-stat-val {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 34px;
+      color: #219ebc;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .mini-stat-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: rgba(255,255,255,0.40);
+      letter-spacing: 0.04em;
+      margin-top: 4px;
+    }
+    .mini-stat-divider {
+      width: 32px;
+      height: 1px;
+      background: rgba(141,89,255,0.35);
+      margin-top: 10px;
+    }
+
+    /* Bottom line */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #219ebc, rgba(34,126,255,0.5) 60%, transparent);
+    }
+
+    /* Company name bottom left */
+    .company-bottom {
+      position: absolute;
+      bottom: 18px;
+      left: 64px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.25);
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <!-- Background layers -->
+    <div class="dot-grid"></div>
+    <div class="mesh-tl"></div>
+    <div class="mesh-br"></div>
+
+    <!-- Circuit SVG decoration -->
+    <svg class="circuit-svg" viewBox="0 0 340 628" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M340 0 L260 0 L240 20 L240 80 L200 120 L200 200 L160 240 L160 320 L200 360 L200 440 L240 480 L240 560 L260 580 L340 580"
+            stroke="rgba(141,89,255,0.18)" stroke-width="1.5" fill="none"
+            stroke-dasharray="600" stroke-dashoffset="600"
+            style="animation: circuitDraw 2s ease 0.5s forwards;"/>
+      <path d="M340 60 L300 60 L280 80 L280 160 L260 180 L260 280 L300 320 L300 420 L280 440 L280 500 L340 500"
+            stroke="rgba(34,126,255,0.14)" stroke-width="1" fill="none"
+            stroke-dasharray="600" stroke-dashoffset="600"
+            style="animation: circuitDraw 2.2s ease 0.8s forwards;"/>
+      <!-- Nodes -->
+      <circle cx="240" cy="120" r="3.5" fill="rgba(141,89,255,0.5)"/>
+      <circle cx="200" cy="240" r="3.5" fill="rgba(141,89,255,0.5)"/>
+      <circle cx="160" cy="360" r="3.5" fill="rgba(141,89,255,0.5)"/>
+      <circle cx="240" cy="480" r="3.5" fill="rgba(141,89,255,0.5)"/>
+      <circle cx="280" cy="180" r="2.5" fill="rgba(34,126,255,0.4)"/>
+      <circle cx="300" cy="320" r="2.5" fill="rgba(34,126,255,0.4)"/>
+      <circle cx="280" cy="440" r="2.5" fill="rgba(34,126,255,0.4)"/>
+    </svg>
+
+    <!-- Main content -->
+    <div class="content">
+      <!-- Badge row -->
+      <div class="badge-row">
+        <div class="badge">
+          <div class="badge-dot"></div>
+          <span class="badge-text">ZATCA Phase 2 Compliant</span>
+        </div>
+        <span class="flag-text">🇸🇦 Saudi Arabia · 🇵🇰 Pakistan</span>
+      </div>
+
+      <!-- Headline -->
+      <div class="headline">
+        Is Your Business<br>
+        <em><span class="highlight">ZATCA</span> Ready?</em>
+      </div>
+
+      <!-- Subtext -->
+      <p class="subtext">
+        Rightway Systems delivers <strong>ZATCA Phase 2 e-invoicing compliance</strong> for Saudi Arabia — certified, fast, and reliable. Trusted by 100+ enterprise clients across the Gulf and Pakistan.
+      </p>
+
+      <!-- Bottom row -->
+      <div class="bottom-row">
+        <a class="cta-btn" href="https://rightapps.net">
+          Get Compliant Now
+          <span class="cta-arrow">→</span>
+        </a>
+        <span class="url-tag">rightapps.net</span>
+      </div>
+    </div>
+
+    <!-- Right stats column -->
+    <div class="stats-col">
+      <div class="mini-stat">
+        <div class="mini-stat-val">500+</div>
+        <div class="mini-stat-label">Projects Delivered</div>
+        <div class="mini-stat-divider"></div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-val">100+</div>
+        <div class="mini-stat-label">Enterprise Clients</div>
+        <div class="mini-stat-divider"></div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-val">95%</div>
+        <div class="mini-stat-label">Client Satisfaction</div>
+        <div class="mini-stat-divider"></div>
+      </div>
+    </div>
+
+    <div class="bottom-bar"></div>
+    <div class="company-bottom">Rightway Systems · Lahore, Pakistan</div>
+  </div>
+</body>
+</html>

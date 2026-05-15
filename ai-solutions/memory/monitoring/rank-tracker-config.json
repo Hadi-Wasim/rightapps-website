@@ -1,0 +1,729 @@
+{
+  "project": "Rightway Systems",
+  "domain": "rightapps.net",
+  "tracking_started": "2026-04-25",
+  "check_frequency": "weekly",
+  "check_day": "Monday",
+  "search_engines": ["Google PK", "Google SA", "Google AE"],
+  "markets": {
+    "Pakistan": { "locale": "pk", "language": "en", "tld": "google.com.pk" },
+    "Saudi Arabia": { "locale": "sa", "language": "en", "tld": "google.com.sa" },
+    "UAE": { "locale": "ae", "language": "en", "tld": "google.ae" }
+  },
+  "tools": {
+    "primary": "Google Search Console",
+    "secondary": ["Ubersuggest", "SEMrush trial", "Ahrefs trial"],
+    "manual_check": true
+  },
+  "alert_thresholds": {
+    "drop_escalate": 5,
+    "drop_monitor": 3,
+    "new_ranking_threshold": 50,
+    "target_first_page": 10,
+    "target_top_3": 3
+  },
+  "baseline_date": "2026-04-25",
+  "reporting_cadence": {
+    "weekly_snapshot": true,
+    "monthly_report": true,
+    "quarterly_review": true
+  },
+  "keyword_groups": {
+    "group_1_hero_brand": {
+      "name": "Hero / Brand",
+      "description": "Core brand and company-type keywords. High competition, long-term play. Non-negotiable for brand establishment.",
+      "priority": "high",
+      "target_pages": ["index.html", "about.html", "services.html"],
+      "quick_win": false,
+      "estimated_ranking_timeline": "90-180 days",
+      "keywords": [
+        {
+          "keyword": "software house Pakistan",
+          "monthly_volume": 1900,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "software company Pakistan",
+          "monthly_volume": 2400,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "software development company Pakistan",
+          "monthly_volume": 880,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "IT company Pakistan",
+          "monthly_volume": 1300,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "about.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "software house in Lahore",
+          "monthly_volume": 720,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "software house Lahore Pakistan",
+          "monthly_volume": 320,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "software outsourcing Pakistan",
+          "monthly_volume": 320,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "Rightway Systems",
+          "monthly_volume": 50,
+          "competition": "Low",
+          "intent": "Navigational",
+          "target_page": "index.html",
+          "priority": "high"
+        }
+      ]
+    },
+    "group_2_erp": {
+      "name": "ERP Solutions",
+      "description": "Enterprise Resource Planning keywords. Mix of medium and low competition. Dedicated ERP service page required.",
+      "priority": "high",
+      "target_pages": ["service-details.html#erp", "/solutions/erp-manufacturing", "/solutions/erp-retail", "/solutions/erp-sme"],
+      "quick_win": true,
+      "estimated_ranking_timeline": "45-90 days",
+      "keywords": [
+        {
+          "keyword": "ERP software Pakistan",
+          "monthly_volume": 880,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "service-details.html#erp",
+          "priority": "high"
+        },
+        {
+          "keyword": "custom ERP development Pakistan",
+          "monthly_volume": 170,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#erp",
+          "priority": "high"
+        },
+        {
+          "keyword": "ERP implementation Pakistan",
+          "monthly_volume": 320,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "service-details.html#erp",
+          "priority": "high"
+        },
+        {
+          "keyword": "best ERP software Pakistan",
+          "monthly_volume": 210,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "service-details.html#erp",
+          "priority": "high"
+        },
+        {
+          "keyword": "cloud ERP Pakistan",
+          "monthly_volume": 110,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#erp",
+          "priority": "high"
+        },
+        {
+          "keyword": "ERP development company Pakistan",
+          "monthly_volume": 130,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#erp",
+          "priority": "high"
+        },
+        {
+          "keyword": "ERP software for manufacturing Pakistan",
+          "monthly_volume": 90,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "/solutions/erp-manufacturing",
+          "priority": "high"
+        },
+        {
+          "keyword": "ERP software Saudi Arabia",
+          "monthly_volume": 590,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "/solutions/zatca-compliance",
+          "priority": "high"
+        },
+        {
+          "keyword": "ERP system for retail Pakistan",
+          "monthly_volume": 50,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "/solutions/erp-retail",
+          "priority": "medium"
+        },
+        {
+          "keyword": "ERP software for SMEs Pakistan",
+          "monthly_volume": 40,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "/solutions/erp-sme",
+          "priority": "medium"
+        }
+      ]
+    },
+    "group_3_zatca_fbr": {
+      "name": "ZATCA / FBR Compliance",
+      "description": "⚡ HIGHEST PRIORITY — Extremely high intent, very low competition. New domains can rank within 30-90 days. Rightway's strongest differentiator in SA/PK markets.",
+      "priority": "critical",
+      "target_pages": ["service-details.html#zatca-fbr", "/solutions/zatca-compliance"],
+      "quick_win": true,
+      "estimated_ranking_timeline": "30-60 days",
+      "keywords": [
+        {
+          "keyword": "ZATCA integration",
+          "monthly_volume": 880,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "ZATCA Phase 2 compliance",
+          "monthly_volume": 590,
+          "competition": "Low",
+          "intent": "Commercial/Informational",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "ZATCA e-invoicing solution",
+          "monthly_volume": 480,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "ZATCA e-invoicing Saudi Arabia",
+          "monthly_volume": 720,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "/solutions/zatca-compliance",
+          "priority": "critical"
+        },
+        {
+          "keyword": "ZATCA Phase 2 integration",
+          "monthly_volume": 390,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "/solutions/zatca-compliance",
+          "priority": "critical"
+        },
+        {
+          "keyword": "ZATCA approved software",
+          "monthly_volume": 260,
+          "competition": "Low",
+          "intent": "Commercial/Transactional",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "ZATCA compliant POS",
+          "monthly_volume": 170,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "/solutions/zatca-compliance",
+          "priority": "critical"
+        },
+        {
+          "keyword": "ZATCA API integration",
+          "monthly_volume": 130,
+          "competition": "Low",
+          "intent": "Transactional",
+          "target_page": "/solutions/zatca-compliance",
+          "priority": "critical"
+        },
+        {
+          "keyword": "ZATCA integration software Pakistan",
+          "monthly_volume": 90,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "e-invoicing Pakistan",
+          "monthly_volume": 720,
+          "competition": "Low",
+          "intent": "Commercial/Informational",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "FBR integration Pakistan",
+          "monthly_volume": 390,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "FBR tax invoicing software",
+          "monthly_volume": 480,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "FBR POS integration",
+          "monthly_volume": 260,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "FBR e-invoicing software Pakistan",
+          "monthly_volume": 320,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "FBR POS software Pakistan",
+          "monthly_volume": 210,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "FBR compliant software Pakistan",
+          "monthly_volume": 140,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "critical"
+        },
+        {
+          "keyword": "tax invoicing software Pakistan",
+          "monthly_volume": 170,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "high"
+        },
+        {
+          "keyword": "sales tax management software Pakistan",
+          "monthly_volume": 90,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "medium"
+        },
+        {
+          "keyword": "SRB e-invoicing",
+          "monthly_volume": 110,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "medium"
+        },
+        {
+          "keyword": "PRA e-filing software Pakistan",
+          "monthly_volume": 70,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#zatca-fbr",
+          "priority": "medium"
+        }
+      ]
+    },
+    "group_4_ai_automation": {
+      "name": "AI & Automation",
+      "description": "AI and business automation keywords. Mostly low competition — ideal quick wins. LLM/RAG terms are brand new with zero established Pakistani competitors.",
+      "priority": "high",
+      "target_pages": ["service-details.html#ai-automation", "service-details.html#llm", "service-details.html#bpa"],
+      "quick_win": true,
+      "estimated_ranking_timeline": "30-60 days",
+      "keywords": [
+        {
+          "keyword": "AI chatbot development Pakistan",
+          "monthly_volume": 260,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#ai-automation",
+          "priority": "high"
+        },
+        {
+          "keyword": "chatbot development company Pakistan",
+          "monthly_volume": 170,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#ai-automation",
+          "priority": "high"
+        },
+        {
+          "keyword": "AI automation company Pakistan",
+          "monthly_volume": 140,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#ai-automation",
+          "priority": "high"
+        },
+        {
+          "keyword": "custom AI development Pakistan",
+          "monthly_volume": 90,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#ai-automation",
+          "priority": "high"
+        },
+        {
+          "keyword": "AI development company Pakistan",
+          "monthly_volume": 170,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#ai-automation",
+          "priority": "high"
+        },
+        {
+          "keyword": "AI agent development Pakistan",
+          "monthly_volume": 70,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#ai-automation",
+          "priority": "high"
+        },
+        {
+          "keyword": "LLM fine-tuning services",
+          "monthly_volume": 320,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#llm",
+          "priority": "high"
+        },
+        {
+          "keyword": "RAG chatbot development",
+          "monthly_volume": 170,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#llm",
+          "priority": "high"
+        },
+        {
+          "keyword": "GPT integration services Pakistan",
+          "monthly_volume": 110,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#llm",
+          "priority": "high"
+        },
+        {
+          "keyword": "business automation software Pakistan",
+          "monthly_volume": 210,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "service-details.html#bpa",
+          "priority": "high"
+        },
+        {
+          "keyword": "process automation software Pakistan",
+          "monthly_volume": 140,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#bpa",
+          "priority": "high"
+        },
+        {
+          "keyword": "workflow automation software Pakistan",
+          "monthly_volume": 110,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#bpa",
+          "priority": "high"
+        },
+        {
+          "keyword": "AI powered ERP Pakistan",
+          "monthly_volume": 50,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#erp",
+          "priority": "high"
+        }
+      ]
+    },
+    "group_5_lms_education": {
+      "name": "LMS & Education",
+      "description": "Learning Management System and education vertical keywords. Low competition across all sub-terms. Underserved niche with strong buyer intent.",
+      "priority": "high",
+      "target_pages": ["service-details.html#lms", "/solutions/school-management"],
+      "quick_win": true,
+      "estimated_ranking_timeline": "30-60 days",
+      "keywords": [
+        {
+          "keyword": "LMS software Pakistan",
+          "monthly_volume": 260,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "service-details.html#lms",
+          "priority": "high"
+        },
+        {
+          "keyword": "learning management system Pakistan",
+          "monthly_volume": 480,
+          "competition": "Medium",
+          "intent": "Commercial/Informational",
+          "target_page": "service-details.html#lms",
+          "priority": "high"
+        },
+        {
+          "keyword": "LMS for schools Pakistan",
+          "monthly_volume": 140,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#lms",
+          "priority": "high"
+        },
+        {
+          "keyword": "LMS for universities Pakistan",
+          "monthly_volume": 110,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#lms",
+          "priority": "high"
+        },
+        {
+          "keyword": "LMS for corporate training Pakistan",
+          "monthly_volume": 70,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#lms",
+          "priority": "high"
+        },
+        {
+          "keyword": "e-learning platform development Pakistan",
+          "monthly_volume": 90,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#lms",
+          "priority": "high"
+        },
+        {
+          "keyword": "custom LMS development Pakistan",
+          "monthly_volume": 50,
+          "competition": "Low",
+          "intent": "Transactional",
+          "target_page": "service-details.html#lms",
+          "priority": "high"
+        },
+        {
+          "keyword": "school management software Pakistan",
+          "monthly_volume": 390,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "/solutions/school-management",
+          "priority": "high"
+        }
+      ]
+    },
+    "group_6_development_services": {
+      "name": "Development Services",
+      "description": "Core development service keywords including web, mobile, custom software, and specific language expertise. Python/PHP/Go terms are pure quick wins with minimal competition.",
+      "priority": "high",
+      "target_pages": ["services.html", "service-details.html#web-mobile", "contact.html", "/services/python-development", "/services/php-development"],
+      "quick_win": true,
+      "estimated_ranking_timeline": "30-90 days",
+      "keywords": [
+        {
+          "keyword": "custom software development Pakistan",
+          "monthly_volume": 720,
+          "competition": "High",
+          "intent": "Commercial/Transactional",
+          "target_page": "services.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "web development company Pakistan",
+          "monthly_volume": 1600,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "service-details.html#web-mobile",
+          "priority": "high"
+        },
+        {
+          "keyword": "mobile app development Pakistan",
+          "monthly_volume": 1900,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "service-details.html#web-mobile",
+          "priority": "high"
+        },
+        {
+          "keyword": "full stack development company Pakistan",
+          "monthly_volume": 170,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "service-details.html#web-mobile",
+          "priority": "high"
+        },
+        {
+          "keyword": "hire software developers Pakistan",
+          "monthly_volume": 390,
+          "competition": "Medium",
+          "intent": "Transactional",
+          "target_page": "contact.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "Python development company Pakistan",
+          "monthly_volume": 110,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "/services/python-development",
+          "priority": "high"
+        },
+        {
+          "keyword": "PHP development company Pakistan",
+          "monthly_volume": 90,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "/services/php-development",
+          "priority": "high"
+        },
+        {
+          "keyword": "backend development company Pakistan",
+          "monthly_volume": 90,
+          "competition": "Low",
+          "intent": "Commercial",
+          "target_page": "service-details.html#web-mobile",
+          "priority": "high"
+        },
+        {
+          "keyword": "outsource software development Pakistan",
+          "monthly_volume": 260,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "services.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "IT services company Pakistan",
+          "monthly_volume": 260,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "services.html",
+          "priority": "high"
+        }
+      ]
+    },
+    "group_7_geographic": {
+      "name": "Geographic / Regional",
+      "description": "Geographic + service keywords for Pakistan city-level and SA/UAE regional targeting. Critical for local search visibility across all three markets.",
+      "priority": "medium",
+      "target_pages": ["index.html", "about.html", "services.html"],
+      "quick_win": false,
+      "estimated_ranking_timeline": "60-120 days",
+      "keywords": [
+        {
+          "keyword": "software house Karachi",
+          "monthly_volume": 390,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "software development Lahore",
+          "monthly_volume": 480,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "IT company Riyadh",
+          "monthly_volume": 320,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "about.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "software company Saudi Arabia",
+          "monthly_volume": 880,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "about.html",
+          "priority": "medium"
+        },
+        {
+          "keyword": "software outsourcing Saudi Arabia",
+          "monthly_volume": 170,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "services.html",
+          "priority": "high"
+        },
+        {
+          "keyword": "software company UAE",
+          "monthly_volume": 1300,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "about.html",
+          "priority": "medium"
+        },
+        {
+          "keyword": "software development UAE",
+          "monthly_volume": 1600,
+          "competition": "High",
+          "intent": "Commercial",
+          "target_page": "about.html",
+          "priority": "medium"
+        },
+        {
+          "keyword": "software house Islamabad",
+          "monthly_volume": 260,
+          "competition": "Medium",
+          "intent": "Commercial",
+          "target_page": "index.html",
+          "priority": "medium"
+        }
+      ]
+    }
+  },
+  "total_keywords_tracked": 77,
+  "keyword_summary": {
+    "critical_priority": 20,
+    "high_priority": 47,
+    "medium_priority": 10,
+    "quick_wins_30d": 19,
+    "quick_wins_60d": 15,
+    "total_monthly_search_volume": 38000
+  },
+  "notes": "Config generated from Phase 2 keyword research. ZATCA/FBR group is highest priority — extremely low competition, highly specific buyer intent. New domain should focus budget and content on Group 3 first."
+}

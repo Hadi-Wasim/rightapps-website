@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter+Tight:wght@300;400;600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 300px; height: 250px; overflow: hidden; background: #0d1017; }
+
+  .banner {
+    width: 300px; height: 250px;
+    background: #0d1017;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 15px 16px 10px;
+  }
+
+  /* Top-left radial glow */
+  .glow {
+    position: absolute; top: -55px; left: -55px;
+    width: 230px; height: 230px;
+    background: radial-gradient(ellipse, rgba(141,89,255,0.24) 0%, rgba(141,89,255,0.06) 50%, transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+  @keyframes glowPulse { 0%, 100% { opacity: .7 } 50% { opacity: 1 } }
+
+  /* Enterprise badge */
+  .badge {
+    display: inline-flex; align-items: center;
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 7.5px;
+    letter-spacing: 0.12em; color: #D0FF00;
+    background: rgba(208,255,0,0.07); border: 1px solid rgba(208,255,0,0.25);
+    border-radius: 20px; padding: 3px 9px;
+    margin-bottom: 9px; position: relative; z-index: 1; width: fit-content;
+  }
+
+  .headline {
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 21px;
+    color: rgba(255,255,255,0.9); line-height: 1.15;
+    margin-bottom: 5px; position: relative; z-index: 1;
+  }
+  .subtext {
+    font-family: 'Inter Tight', sans-serif; font-weight: 300; font-size: 11.5px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px; position: relative; z-index: 1;
+  }
+
+  /* Bullets */
+  .bullets {
+    display: flex; flex-direction: column; gap: 5px;
+    position: relative; z-index: 1; flex: 1;
+  }
+  .bullet { display: flex; align-items: center; gap: 7px; }
+  .check {
+    font-size: 10px; color: #219ebc; flex-shrink: 0;
+    font-weight: 700; line-height: 1;
+  }
+  .bullet-text {
+    font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 11px;
+    color: rgba(255,255,255,0.82); line-height: 1;
+  }
+
+  /* CTA */
+  .cta-btn {
+    display: block; width: 100%;
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 12.5px;
+    color: #fff;
+    background: linear-gradient(135deg, #219ebc 0%, #6B3FD6 100%);
+    border: none; border-radius: 7px; padding: 10px 12px;
+    text-align: center; cursor: pointer;
+    margin-top: 10px; position: relative; z-index: 1;
+    box-shadow: 0 4px 18px rgba(141,89,255,0.35);
+  }
+  .url {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 300; font-size: 8px;
+    color: rgba(255,255,255,0.28); text-align: center;
+    margin-top: 6px; position: relative; z-index: 1; letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="glow"></div>
+
+  <div class="badge">ENTERPRISE SOFTWARE</div>
+  <div class="headline">Custom ERP<br>Systems</div>
+  <div class="subtext">Built for Pakistan &amp; Gulf Markets</div>
+
+  <div class="bullets">
+    <div class="bullet">
+      <span class="check">✓</span>
+      <span class="bullet-text">ZATCA Phase 2 Compliant</span>
+    </div>
+    <div class="bullet">
+      <span class="check">✓</span>
+      <span class="bullet-text">FBR Integrated (Pakistan)</span>
+    </div>
+    <div class="bullet">
+      <span class="check">✓</span>
+      <span class="bullet-text">Cloud-Ready AWS/Azure</span>
+    </div>
+  </div>
+
+  <div class="cta-btn">Start a Project →</div>
+  <div class="url">rightapps.net</div>
+</div>
+</body>
+</html>

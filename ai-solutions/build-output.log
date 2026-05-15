@@ -1,0 +1,212 @@
+
+> html-starter@0.0.0 build
+> vite build && node post-build.js
+
+[36mvite v6.3.6 [32mbuilding for production...[36m[39m
+<script src="./vendor/swiper.min.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/404.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/about.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/blog-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/blog.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/contact.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/erp-solutions.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/faq.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/index.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/login.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/pricing.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/privacy.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/project-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/projects.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/service-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/services.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/signup.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/team-details.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/terms.html" can't be bundled without type="module" attribute
+<script src="./vendor/swiper.min.js"> in "/zatca.html" can't be bundled without type="module" attribute
+<script src="./vendor/vanilla-infinite-marquee.min.js"> in "/zatca.html" can't be bundled without type="module" attribute
+<script src="./vendor/split-text.min.js"> in "/zatca.html" can't be bundled without type="module" attribute
+<script src="./vendor/scroll-trigger.min.js"> in "/zatca.html" can't be bundled without type="module" attribute
+<script src="./vendor/motion-path.min.js"> in "/zatca.html" can't be bundled without type="module" attribute
+<script src="./vendor/gsap.min.js"> in "/zatca.html" can't be bundled without type="module" attribute
+<script src="./vendor/lenis.min.js"> in "/zatca.html" can't be bundled without type="module" attribute
+<script src="./vendor/springer.min.js"> in "/zatca.html" can't be bundled without type="module" attribute
+<script src="./vendor/number-counter.js"> in "/zatca.html" can't be bundled without type="module" attribute
+transforming...
+[32mΓ£ô[39m 48 modules transformed.
+rendering chunks...
+Γ£à Minified vendor script: gsap.min.js (48.3% smaller)
+Γ£à Minified vendor script: lenis.min.js (47.7% smaller)
+Γ£à Minified vendor script: motion-path.min.js (6.8% smaller)
+Γ£à Minified vendor script: number-counter.js (51.9% smaller)
+Γ£à Minified vendor script: scroll-trigger.min.js (51.2% smaller)
+Γ£à Minified vendor script: split-text.min.js (48.4% smaller)
+Γ£à Minified vendor script: springer.min.js (48.9% smaller)
+Γ£à Minified vendor script: swiper.min.js (41.5% smaller)
+Γ£à Minified vendor script: vanilla-infinite-marquee.min.js (38.3% smaller)
+computing gzip size...
+[2mdist/[22m[32m404.html                 [39m[1m[2m 71.98 kB[22m[1m[22m[2m Γöé gzip: 13.90 kB[22m
+[2mdist/[22m[32mcontact.html             [39m[1m[2m 77.78 kB[22m[1m[22m[2m Γöé gzip: 15.40 kB[22m
+[2mdist/[22m[32mprivacy.html             [39m[1m[2m 78.90 kB[22m[1m[22m[2m Γöé gzip: 15.69 kB[22m
+[2mdist/[22m[32mlogin.html               [39m[1m[2m 79.14 kB[22m[1m[22m[2m Γöé gzip: 15.51 kB[22m
+[2mdist/[22m[32mterms.html               [39m[1m[2m 80.22 kB[22m[1m[22m[2m Γöé gzip: 16.04 kB[22m
+[2mdist/[22m[32msignup.html              [39m[1m[2m 80.66 kB[22m[1m[22m[2m Γöé gzip: 15.64 kB[22m
+[2mdist/[22m[32mteam-details.html        [39m[1m[2m 84.60 kB[22m[1m[22m[2m Γöé gzip: 15.55 kB[22m
+[2mdist/[22m[32mzatca.html               [39m[1m[2m 87.68 kB[22m[1m[22m[2m Γöé gzip: 17.30 kB[22m
+[2mdist/[22m[32mproject-details.html     [39m[1m[2m 92.07 kB[22m[1m[22m[2m Γöé gzip: 17.49 kB[22m
+[2mdist/[22m[32merp-solutions.html       [39m[1m[2m 93.18 kB[22m[1m[22m[2m Γöé gzip: 18.39 kB[22m
+[2mdist/[22m[32mprojects.html            [39m[1m[2m102.69 kB[22m[1m[22m[2m Γöé gzip: 17.22 kB[22m
+[2mdist/[22m[32mblog-details.html        [39m[1m[2m103.98 kB[22m[1m[22m[2m Γöé gzip: 18.74 kB[22m
+[2mdist/[22m[32mpricing.html             [39m[1m[2m105.90 kB[22m[1m[22m[2m Γöé gzip: 17.29 kB[22m
+[2mdist/[22m[32mblog.html                [39m[1m[2m113.35 kB[22m[1m[22m[2m Γöé gzip: 17.70 kB[22m
+[2mdist/[22m[32mservice-details.html     [39m[1m[2m120.78 kB[22m[1m[22m[2m Γöé gzip: 19.66 kB[22m
+[2mdist/[22m[32mfaq.html                 [39m[1m[2m121.84 kB[22m[1m[22m[2m Γöé gzip: 21.98 kB[22m
+[2mdist/[22m[32mabout.html               [39m[1m[2m124.51 kB[22m[1m[22m[2m Γöé gzip: 20.63 kB[22m
+[2mdist/[22m[32mservices.html            [39m[1m[2m128.95 kB[22m[1m[22m[2m Γöé gzip: 19.79 kB[22m
+[2mdist/[22m[32mindex.html               [39m[1m[2m249.97 kB[22m[1m[22m[2m Γöé gzip: 36.27 kB[22m
+[2mdist/[22m[35massets/main.css          [39m[1m[2m194.75 kB[22m[1m[22m[2m Γöé gzip: 28.24 kB[22m
+[2mdist/[22m[36massets/main-4_46Punz.js  [39m[1m[2m 95.12 kB[22m[1m[22m[2m Γöé gzip: 18.24 kB[22m
+[32mΓ£ô built in 12.85s[39m
+Renamed main-4_46Punz.js to main.js

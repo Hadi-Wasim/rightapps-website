@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rightway Systems — SEO/GEO Campaign Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --card: #111111;
+      --border: #1e1e1e;
+      --accent: #7c3aed;
+      --accent-light: #a855f7;
+      --grad: linear-gradient(135deg, #7c3aed, #a855f7);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --dim: #64748b;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --blue: #3b82f6;
+      --teal: #14b8a6;
+      --violet: #8b5cf6;
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --r: 12px;
+      --ri: 8px;
+      --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ─── STICKY NAV ──────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--accent-light);
+      white-space: nowrap;
+      margin-right: 1.5rem;
+      padding: 0.85rem 0;
+      border-right: 1px solid var(--border);
+      padding-right: 1.5rem;
+    }
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.78rem;
+      white-space: nowrap;
+      padding: 0.85rem 0.9rem;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .nav a:hover { color: var(--text); }
+
+    /* ─── HEADER ──────────────────────────────────────── */
+    .header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      left: -80px;
+      top: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-left h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .header-left p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 0.4rem;
+      font-weight: 400;
+    }
+    .header-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .pill {
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: var(--accent-light);
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .pill.green { background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.3); color: var(--green); }
+
+    /* ─── LAYOUT ──────────────────────────────────────── */
+    .main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+
+    section { margin-bottom: 3rem; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      background: var(--grad);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+    }
+    .section-sub {
+      font-size: 0.8rem;
+      color: var(--dim);
+      margin-left: auto;
+    }
+
+    /* ─── CARDS ───────────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+    }
+
+    /* ─── KPI GRID ────────────────────────────────────── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .kpi-grid { grid-template-columns: 1fr; } }
+
+    .kpi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .kpi-card:hover { transform: translateY(-2px); }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .kpi-card.green::before { background: var(--green); }
+    .kpi-card.purple::before { background: var(--accent-light); }
+    .kpi-card.amber::before { background: var(--amber); }
+    .kpi-card.blue::before { background: var(--blue); }
+    .kpi-card.violet::before { background: var(--violet); }
+    .kpi-card.teal::before { background: var(--teal); }
+
+    .kpi-icon { font-size: 1.6rem; margin-bottom: 0.6rem; display: block; }
+    .kpi-name { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+    .kpi-values {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .kpi-before { font-size: 1.1rem; color: var(--dim); font-weight: 600; }
+    .kpi-arrow { color: var(--muted); font-size: 0.9rem; }
+    .kpi-after { font-size: 1.6rem; font-weight: 800; }
+    .kpi-card.green .kpi-after { color: var(--green); }
+    .kpi-card.purple .kpi-after { color: var(--accent-light); }
+    .kpi-card.amber .kpi-after { color: var(--amber); }
+    .kpi-card.blue .kpi-after { color: var(--blue); }
+    .kpi-card.violet .kpi-after { color: var(--violet); }
+    .kpi-card.teal .kpi-after { color: var(--teal); }
+    .kpi-unit { font-size: 0.75rem; color: var(--dim); align-self: flex-end; padding-bottom: 0.3rem; }
+
+    .kpi-bar-wrap { background: rgba(255,255,255,0.06); border-radius: 100px; height: 6px; overflow: hidden; }
+    .kpi-bar { height: 100%; border-radius: 100px; transition: width 1s ease; }
+    .kpi-card.green .kpi-bar { background: var(--green); }
+    .kpi-card.purple .kpi-bar { background: var(--accent-light); }
+    .kpi-card.amber .kpi-bar { background: var(--amber); }
+    .kpi-card.blue .kpi-bar { background: var(--blue); }
+    .kpi-card.violet .kpi-bar { background: var(--violet); }
+    .kpi-card.teal .kpi-bar { background: var(--teal); }
+    .kpi-change { font-size: 0.72rem; color: var(--muted); margin-top: 0.5rem; }
+
+    /* ─── TIMELINE ────────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item {
+      display: flex;
+      gap: 1.25rem;
+      position: relative;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 52px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .tl-item:last-child::before { display: none; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; padding-top: 0.25rem; }
+    .tl-circle {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #fff;
+      box-shadow: 0 0 0 4px rgba(124,58,237,0.2);
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .tl-connector { width: 2px; flex: 1; background: rgba(124,58,237,0.25); min-height: 20px; }
+    .tl-content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 1.2rem;
+      flex: 1;
+      position: relative;
+    }
+    .tl-content::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--grad);
+      border-radius: 3px 0 0 3px;
+    }
+    .tl-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .tl-phase { font-size: 0.7rem; color: var(--dim); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+    .tl-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .badge-done { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); padding: 0.2rem 0.65rem; border-radius: 100px; font-size: 0.7rem; font-weight: 700; }
+    .tl-bullets {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.35rem 1rem;
+    }
+    .tl-bullets li {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-left: 1.2em;
+      position: relative;
+    }
+    .tl-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--accent-light); font-weight: 700; }
+
+    /* ─── TABLE ───────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    thead tr { background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(168,85,247,0.15)); }
+    thead th {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      color: var(--accent-light);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(124,58,237,0.3);
+    }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    tbody tr:hover { background: rgba(255,255,255,0.03); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 0.75rem 1rem; color: var(--muted); vertical-align: middle; }
+    tbody td:first-child { color: var(--dim); font-weight: 700; }
+    .zatca-row { background: rgba(124,58,237,0.06) !important; }
+    .zatca-row td:first-child { color: var(--accent-light) !important; }
+    .zatca-badge { background: rgba(124,58,237,0.2); color: var(--accent-light); border: 1px solid rgba(124,58,237,0.4); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 800; white-space: nowrap; }
+    .comp-low { background: rgba(16,185,129,0.15); color: var(--green); padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
+    .comp-med { background: rgba(245,158,11,0.15); color: var(--amber); padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
+    .comp-high { background: rgba(239,68,68,0.15); color: var(--red); padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
+    .pri-critical { background: rgba(239,68,68,0.15); color: var(--red); padding: 0.2rem 0.65rem; border-radius: 100px; font-size: 0.72rem; font-weight: 700; }
+    .pri-high { background: rgba(239,68,68,0.1); color: #f87171; padding: 0.2rem 0.65rem; border-radius: 100px; font-size: 0.72rem; font-weight: 700; }
+    .pri-medium { background: rgba(245,158,11,0.12); color: var(--amber); padding: 0.2rem 0.65rem; border-radius: 100px; font-size: 0.72rem; font-weight: 700; }
+    td a { color: var(--accent-light); text-decoration: none; font-size: 0.75rem; }
+    td a:hover { text-decoration: underline; }
+
+    /* ─── CHARTS ──────────────────────────────────────── */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 860px) { .charts-grid { grid-template-columns: 1fr; } }
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+    }
+    .chart-title { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+    .chart-sub { font-size: 0.75rem; color: var(--dim); margin-bottom: 1.2rem; }
+    .chart-canvas-wrap { position: relative; height: 280px; }
+
+    /* ─── CHECKLIST ───────────────────────────────────── */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+    @media (max-width: 700px) { .checklist-grid { grid-template-columns: 1fr; } }
+    .chk-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--ri);
+      padding: 0.75rem 1rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .chk-item:hover { border-color: rgba(124,58,237,0.3); }
+    .chk-icon { font-size: 1rem; flex-shrink: 0; line-height: 1.4; }
+    .chk-body {}
+    .chk-label { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+    .chk-desc { font-size: 0.75rem; color: var(--dim); margin-top: 0.15rem; }
+    .chk-item.done { border-left: 3px solid var(--green); }
+    .chk-item.warn { border-left: 3px solid var(--amber); }
+    .chk-item.fail { border-left: 3px solid var(--red); }
+
+    /* ─── CONTENT TABLE ───────────────────────────────── */
+    .row-complete { background: rgba(16,185,129,0.04); }
+    .row-planned  { background: rgba(245,158,11,0.04); }
+    .badge-complete { background: rgba(16,185,129,0.15); color: var(--green); padding: 0.15rem 0.55rem; border-radius: 100px; font-size: 0.7rem; font-weight: 700; }
+    .badge-planned  { background: rgba(245,158,11,0.12); color: var(--amber); padding: 0.15rem 0.55rem; border-radius: 100px; font-size: 0.7rem; font-weight: 700; }
+    .badge-new  { background: rgba(59,130,246,0.15); color: var(--blue); padding: 0.15rem 0.55rem; border-radius: 100px; font-size: 0.7rem; font-weight: 700; }
+    .badge-updated { background: rgba(124,58,237,0.15); color: var(--violet); padding: 0.15rem 0.55rem; border-radius: 100px; font-size: 0.7rem; font-weight: 700; }
+
+    /* ─── LINK BUILDING ───────────────────────────────── */
+    .lb-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 900px) { .lb-grid { grid-template-columns: 1fr; } }
+    .lb-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .lb-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .lb-card.t1::before { background: var(--green); }
+    .lb-card.t2::before { background: var(--amber); }
+    .lb-card.t3::before { background: var(--blue); }
+    .lb-tier {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+    .lb-card.t1 .lb-tier { color: var(--green); }
+    .lb-card.t2 .lb-tier { color: var(--amber); }
+    .lb-card.t3 .lb-tier { color: var(--blue); }
+    .lb-heading { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+    .lb-items { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .lb-items li { font-size: 0.8rem; color: var(--muted); padding-left: 1.4em; position: relative; }
+    .lb-items li::before { content: '→'; position: absolute; left: 0; font-weight: 700; }
+    .lb-card.t1 .lb-items li::before { color: var(--green); }
+    .lb-card.t2 .lb-items li::before { color: var(--amber); }
+    .lb-card.t3 .lb-items li::before { color: var(--blue); }
+    .lb-items li strong { color: var(--text); }
+    .lb-items li span { display: block; font-size: 0.72rem; color: var(--dim); margin-top: 0.15rem; }
+
+    /* ─── 90-DAY PLAN ─────────────────────────────────── */
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 900px) { .plan-grid { grid-template-columns: 1fr; } }
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .plan-card.m1::before { background: var(--accent-light); }
+    .plan-card.m2::before { background: var(--blue); }
+    .plan-card.m3::before { background: var(--teal); }
+    .plan-month {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.25rem;
+    }
+    .plan-card.m1 .plan-month { color: var(--accent-light); }
+    .plan-card.m2 .plan-month { color: var(--blue); }
+    .plan-card.m3 .plan-month { color: var(--teal); }
+    .plan-heading { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+    .plan-items { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; counter-reset: plan-counter; }
+    .plan-items li {
+      font-size: 0.79rem;
+      color: var(--muted);
+      padding-left: 1.9em;
+      position: relative;
+      counter-increment: plan-counter;
+    }
+    .plan-items li::before {
+      content: counter(plan-counter);
+      position: absolute;
+      left: 0;
+      width: 1.4em;
+      height: 1.4em;
+      border-radius: 50%;
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0.05em;
+    }
+    .plan-card.m1 .plan-items li::before { background: rgba(168,85,247,0.2); color: var(--accent-light); }
+    .plan-card.m2 .plan-items li::before { background: rgba(59,130,246,0.2); color: var(--blue); }
+    .plan-card.m3 .plan-items li::before { background: rgba(20,184,166,0.2); color: var(--teal); }
+
+    /* ─── MONITORING ──────────────────────────────────── */
+    .monitor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 700px) { .monitor-grid { grid-template-columns: 1fr; } }
+    .mon-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+    }
+    .mon-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .mon-icon { font-size: 1.4rem; }
+    .mon-title { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .mon-rows { display: flex; flex-direction: column; gap: 0.55rem; }
+    .mon-row { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.8rem; }
+    .mon-label { color: var(--dim); font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; min-width: 90px; flex-shrink: 0; padding-top: 0.05em; }
+    .mon-val { color: var(--muted); }
+    .mon-val strong { color: var(--text); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: var(--dim);
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+    }
+    footer span { color: var(--accent-light); font-weight: 600; }
+
+    /* ─── UTILITY ─────────────────────────────────────── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+    .vol-chip { background: rgba(255,255,255,0.06); color: var(--text); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+    .kw-group { font-size: 0.72rem; color: var(--dim); }
+    .td-code { font-family: 'Courier New', monospace; font-size: 0.72rem; color: var(--blue); background: rgba(59,130,246,0.08); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    @media (max-width: 600px) {
+      .main { padding: 1rem; }
+      .header { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── STICKY NAVIGATION ──────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-brand">Rightway Systems</div>
+  <a href="#executive">Executive Summary</a>
+  <a href="#phases">Phase Timeline</a>
+  <a href="#keywords">Keywords</a>
+  <a href="#competitors">Competitors</a>
+  <a href="#technical">Technical SEO</a>
+  <a href="#content">Content Assets</a>
+  <a href="#linkbuilding">Link Building</a>
+  <a href="#plan">90-Day Plan</a>
+  <a href="#monitoring">Monitoring</a>
+</nav>
+
+<!-- ─── HEADER ────────────────────────────────────────── -->
+<header class="header">
+  <div class="header-left">
+    <h1>Rightway Systems</h1>
+    <p>SEO / GEO Campaign Performance Dashboard</p>
+  </div>
+  <div class="header-pills">
+    <span class="pill">📅 Generated: April 2026</span>
+    <span class="pill">🌐 Domain: rightapps.net</span>
+    <span class="pill green">✓ Status: Active</span>
+    <span class="pill">🗺 Markets: PK · SA · UAE</span>
+  </div>
+</header>
+
+<!-- ─── MAIN CONTENT ───────────────────────────────────── -->
+<main class="main">
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 1: EXECUTIVE SUMMARY
+  ═════════════════════════════════════════════════════ -->
+  <section id="executive">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Executive Summary</h2>
+      <span class="section-sub">Key Performance Indicators — Before vs. After</span>
+    </div>
+
+    <div class="kpi-grid">
+
+      <!-- On-Page SEO -->
+      <div class="kpi-card green">
+        <span class="kpi-icon">📄</span>
+        <div class="kpi-name">On-Page SEO Score</div>
+        <div class="kpi-values">
+          <span class="kpi-before">54</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-after">87</span>
+          <span class="kpi-unit">/100</span>
+        </div>
+        <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:87%"></div></div>
+        <div class="kpi-change">▲ +33 points improvement (+61%)</div>
+      </div>
+
+      <!-- Domain Authority -->
+      <div class="kpi-card purple">
+        <span class="kpi-icon">🏛</span>
+        <div class="kpi-name">Domain Authority (CITE)</div>
+        <div class="kpi-values">
+          <span class="kpi-before">59</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-after">79</span>
+          <span class="kpi-unit">/100</span>
+        </div>
+        <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:79%"></div></div>
+        <div class="kpi-change">▲ +20 points improvement (+34%)</div>
+      </div>
+
+      <!-- EEAT Score -->
+      <div class="kpi-card amber">
+        <span class="kpi-icon">⭐</span>
+        <div class="kpi-name">EEAT Score</div>
+        <div class="kpi-values">
+          <span class="kpi-before">51%</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-after">63%</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:63%"></div></div>
+        <div class="kpi-change">▲ +12 points improvement (+24%)</div>
+      </div>
+
+      <!-- GEO AI Citation -->
+      <div class="kpi-card blue">
+        <span class="kpi-icon">🤖</span>
+        <div class="kpi-name">GEO AI Citation Readiness</div>
+        <div class="kpi-values">
+          <span class="kpi-before">4.5</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-after">8.3</span>
+          <span class="kpi-unit">/10</span>
+        </div>
+        <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:83%"></div></div>
+        <div class="kpi-change">▲ +3.8 points improvement (+84%)</div>
+      </div>
+
+      <!-- Schema Pages -->
+      <div class="kpi-card violet">
+        <span class="kpi-icon">🏷</span>
+        <div class="kpi-name">Pages with Schema Markup</div>
+        <div class="kpi-values">
+          <span class="kpi-before">0</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-after">8</span>
+          <span class="kpi-unit">pages</span>
+        </div>
+        <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:80%"></div></div>
+        <div class="kpi-change">▲ +8 pages with structured data</div>
+      </div>
+
+      <!-- Keywords Tracked -->
+      <div class="kpi-card teal">
+        <span class="kpi-icon">🔑</span>
+        <div class="kpi-name">Keywords Tracked</div>
+        <div class="kpi-values">
+          <span class="kpi-before">0</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-after">113</span>
+          <span class="kpi-unit">keywords</span>
+        </div>
+        <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:100%"></div></div>
+        <div class="kpi-change">▲ Across 7 strategic categories</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 2: PHASE COMPLETION TIMELINE
+  ═════════════════════════════════════════════════════ -->
+  <section id="phases">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Phase Completion Timeline</h2>
+      <span class="section-sub">4 of 4 phases completed</span>
+    </div>
+
+    <div class="timeline">
+
+      <!-- Phase 1 -->
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-circle">1</div>
+          <div class="tl-connector"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-header">
+            <span class="tl-phase">Phase 1</span>
+            <span class="tl-title">Technical Foundation</span>
+            <span class="badge-done">✅ COMPLETED</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>robots.txt &amp; sitemap.xml created</li>
+            <li>Canonical URLs fixed (9 pages)</li>
+            <li>Image lazy loading applied (30+ files)</li>
+            <li>Meta descriptions added/fixed</li>
+            <li>Internal linking restructured (orphan pages resolved)</li>
+            <li>Privacy &amp; Terms pages created</li>
+            <li>CITE domain authority: 59 → 79/100</li>
+            <li>NAP consistency fixed (email, phone, address)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-circle">2</div>
+          <div class="tl-connector"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-header">
+            <span class="tl-phase">Phase 2</span>
+            <span class="tl-title">Research &amp; Intelligence</span>
+            <span class="badge-done">✅ COMPLETED</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>113 keywords researched across 7 categories</li>
+            <li>8 competitor profiles analysed (Systems Ltd, Arbisoft, Folio3, Tkxel, 10Pearls, InvoZone, NetSol, Contour)</li>
+            <li>SERP features mapped for 8 priority keywords</li>
+            <li>Content gap analysis: 15 missing pages identified</li>
+            <li>6 strategic blog article briefs created</li>
+            <li>FAQ enhanced with 4 new high-intent PAA answers</li>
+            <li>Blog page updated with real article titles</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-circle">3</div>
+          <div class="tl-connector"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-header">
+            <span class="tl-phase">Phase 3</span>
+            <span class="tl-title">On-Page &amp; GEO Optimisation</span>
+            <span class="badge-done">✅ COMPLETED</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>On-page SEO score: 54 → 87/100</li>
+            <li>8 JSON-LD schemas implemented (Organization, WebSite, LocalBusiness, FAQPage, ItemList, BreadcrumbList ×3)</li>
+            <li>GEO AI citation readiness: 4.5 → 8.3/10</li>
+            <li>EEAT score: 51% → 63% (+20 points)</li>
+            <li>Entity definition paragraph added (encyclopedic format)</li>
+            <li>15 meta tags/titles optimised across 6 pages</li>
+            <li>ZATCA card highlighted as unique capability</li>
+            <li>Solutions by Industry section added</li>
+            <li>Agile/Scrum, Security (ISO 27001 + OWASP) cards added</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-circle">4</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-header">
+            <span class="tl-phase">Phase 4</span>
+            <span class="tl-title">Reporting &amp; Roadmap</span>
+            <span class="badge-done">✅ COMPLETED</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>This performance dashboard</li>
+            <li>90-day action plan defined</li>
+            <li>Link building roadmap established</li>
+            <li>Monitoring &amp; alert schedule configured</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 3: TOP 10 PRIORITY KEYWORDS
+  ═════════════════════════════════════════════════════ -->
+  <section id="keywords">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Top 10 Priority Keywords</h2>
+      <span class="section-sub">Ranked by opportunity &amp; strategic importance</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Keyword</th>
+            <th>Group</th>
+            <th>Target Page</th>
+            <th>Search Vol.</th>
+            <th>Competition</th>
+            <th>Est. Time to Rank</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="zatca-row">
+            <td>1</td>
+            <td><strong>ZATCA integration</strong> <span class="zatca-badge">🔥 ZATCA ADVANTAGE</span></td>
+            <td><span class="kw-group">ZATCA/FBR</span></td>
+            <td><a href="#">/service-details.html#zatca-fbr</a></td>
+            <td><span class="vol-chip">880/mo</span></td>
+            <td><span class="comp-low">🟢 Low</span></td>
+            <td>30–60 days</td>
+            <td><span class="pri-critical">🔴 Critical</span></td>
+          </tr>
+          <tr class="zatca-row">
+            <td>2</td>
+            <td><strong>ZATCA Phase 2 compliance</strong> <span class="zatca-badge">🔥 ZATCA ADVANTAGE</span></td>
+            <td><span class="kw-group">ZATCA/FBR</span></td>
+            <td><a href="#">/solutions/zatca-compliance</a></td>
+            <td><span class="vol-chip">590/mo</span></td>
+            <td><span class="comp-low">🟢 Low</span></td>
+            <td>30–60 days</td>
+            <td><span class="pri-critical">🔴 Critical</span></td>
+          </tr>
+          <tr class="zatca-row">
+            <td>3</td>
+            <td><strong>ZATCA e-invoicing Saudi Arabia</strong> <span class="zatca-badge">🔥 ZATCA ADVANTAGE</span></td>
+            <td><span class="kw-group">ZATCA/FBR</span></td>
+            <td><a href="#">/solutions/zatca-compliance</a></td>
+            <td><span class="vol-chip">720/mo</span></td>
+            <td><span class="comp-low">🟢 Low</span></td>
+            <td>30–60 days</td>
+            <td><span class="pri-critical">🔴 Critical</span></td>
+          </tr>
+          <tr class="zatca-row">
+            <td>4</td>
+            <td><strong>FBR integration Pakistan</strong> <span class="zatca-badge">🔥 ZATCA ADVANTAGE</span></td>
+            <td><span class="kw-group">ZATCA/FBR</span></td>
+            <td><a href="#">/service-details.html#zatca-fbr</a></td>
+            <td><span class="vol-chip">390/mo</span></td>
+            <td><span class="comp-low">🟢 Low</span></td>
+            <td>45–75 days</td>
+            <td><span class="pri-critical">🔴 Critical</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>ERP software Pakistan</strong></td>
+            <td><span class="kw-group">Enterprise ERP</span></td>
+            <td><a href="#">/service-details.html#erp</a></td>
+            <td><span class="vol-chip">880/mo</span></td>
+            <td><span class="comp-med">🟡 Medium</span></td>
+            <td>90–180 days</td>
+            <td><span class="pri-high">🔴 High</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>software house Pakistan</strong></td>
+            <td><span class="kw-group">Brand/Company</span></td>
+            <td><a href="#">/index.html</a></td>
+            <td><span class="vol-chip">1,900/mo</span></td>
+            <td><span class="comp-high">🔴 High</span></td>
+            <td>180–365 days</td>
+            <td><span class="pri-high">🔴 High</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><strong>AI chatbot development Pakistan</strong></td>
+            <td><span class="kw-group">AI &amp; Automation</span></td>
+            <td><a href="#">/service-details.html#ai-automation</a></td>
+            <td><span class="vol-chip">260/mo</span></td>
+            <td><span class="comp-low">🟢 Low</span></td>
+            <td>45–90 days</td>
+            <td><span class="pri-high">🔴 High</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><strong>LMS software Pakistan</strong></td>
+            <td><span class="kw-group">Enterprise LMS</span></td>
+            <td><a href="#">/service-details.html#lms</a></td>
+            <td><span class="vol-chip">260/mo</span></td>
+            <td><span class="comp-med">🟡 Medium</span></td>
+            <td>60–120 days</td>
+            <td><span class="pri-high">🔴 High</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><strong>custom ERP development Pakistan</strong></td>
+            <td><span class="kw-group">Enterprise ERP</span></td>
+            <td><a href="#">/service-details.html#erp</a></td>
+            <td><span class="vol-chip">170/mo</span></td>
+            <td><span class="comp-low">🟢 Low</span></td>
+            <td>60–90 days</td>
+            <td><span class="pri-high">🔴 High</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><strong>software house Lahore Pakistan</strong></td>
+            <td><span class="kw-group">Brand/Company</span></td>
+            <td><a href="#">/index.html</a></td>
+            <td><span class="vol-chip">320/mo</span></td>
+            <td><span class="comp-med">🟡 Medium</span></td>
+            <td>90–150 days</td>
+            <td><span class="pri-medium">🟡 Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 4: COMPETITOR LANDSCAPE
+  ═════════════════════════════════════════════════════ -->
+  <section id="competitors">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Competitor Landscape</h2>
+      <span class="section-sub">Rightway Systems vs. Pakistani software houses</span>
+    </div>
+
+    <div class="charts-grid">
+
+      <div class="chart-card">
+        <div class="chart-title">Competitive Positioning</div>
+        <div class="chart-sub">Domain Authority · ZATCA Coverage · Content Depth · Gulf Market Focus (0–100)</div>
+        <div class="chart-canvas-wrap">
+          <canvas id="chartCompetitor"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">SEO Score Improvements</div>
+        <div class="chart-sub">Before vs. After across core SEO dimensions</div>
+        <div class="chart-canvas-wrap">
+          <canvas id="chartImprovement"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 5: TECHNICAL SEO CHECKLIST
+  ═════════════════════════════════════════════════════ -->
+  <section id="technical">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Technical SEO Checklist</h2>
+      <span class="section-sub">18 completed · 5 pending</span>
+    </div>
+
+    <div class="checklist-grid">
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">robots.txt</div><div class="chk-desc">Created with crawler rules and sitemap pointer</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">XML Sitemap</div><div class="chk-desc">10 pages, priorities and change frequencies set</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Canonical URLs</div><div class="chk-desc">Unique per-page canonicals on all 9 pages</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Image Lazy Loading</div><div class="chk-desc">Applied to 30+ component files</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Preconnect Hints</div><div class="chk-desc">Google Fonts preconnect added</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Meta Descriptions</div><div class="chk-desc">All 9 pages have optimised descriptions</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Heading Hierarchy</div><div class="chk-desc">H1→H2→H3 verified on all pages</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">404 Noindex</div><div class="chk-desc">noindex, nofollow on error page</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Open Graph Tags</div><div class="chk-desc">OG title/description/image updated</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Organization JSON-LD</div><div class="chk-desc">Schema with 3 offices, 9 services</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">WebSite Schema</div><div class="chk-desc">SearchAction potentialAction added</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">LocalBusiness Schema</div><div class="chk-desc">GeoCoordinates for Lahore office</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">FAQPage Schema</div><div class="chk-desc">11 Q&amp;A pairs on faq.html</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">BreadcrumbList Schema</div><div class="chk-desc">5 inner pages</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Privacy Policy</div><div class="chk-desc">Full PECA-compliant policy page</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Terms of Service</div><div class="chk-desc">13-clause terms page</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">NAP Consistency</div><div class="chk-desc">Email, phone, address fixed across all pages</div></div></div>
+      <div class="chk-item done"><span class="chk-icon">✅</span><div class="chk-body"><div class="chk-label">Internal Link Audit</div><div class="chk-desc">Orphan pages resolved (pricing, blog)</div></div></div>
+      <div class="chk-item warn"><span class="chk-icon">⚠️</span><div class="chk-body"><div class="chk-label">Social Icon URLs</div><div class="chk-desc">Replace # placeholders with real profile URLs</div></div></div>
+      <div class="chk-item warn"><span class="chk-icon">⚠️</span><div class="chk-body"><div class="chk-label">OG Image</div><div class="chk-desc">Replace placeholder with branded image</div></div></div>
+      <div class="chk-item warn"><span class="chk-icon">⚠️</span><div class="chk-body"><div class="chk-label">Per-page OG URLs</div><div class="chk-desc">Currently shared; need per-page overrides</div></div></div>
+      <div class="chk-item warn"><span class="chk-icon">⚠️</span><div class="chk-body"><div class="chk-label">Real Phone Number</div><div class="chk-desc">Placeholder still in contact form</div></div></div>
+      <div class="chk-item warn"><span class="chk-icon">⚠️</span><div class="chk-body"><div class="chk-label">Google Business Profile</div><div class="chk-desc">3 locations to be claimed (Lahore, Riyadh, Dubai)</div></div></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 6: CONTENT ASSETS CREATED
+  ═════════════════════════════════════════════════════ -->
+  <section id="content">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Content Assets Created</h2>
+      <span class="section-sub">8 complete · 7 planned · ~8,000+/mo est. traffic potential</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Asset</th>
+            <th>Type</th>
+            <th>Target Keyword</th>
+            <th>Est. Monthly Traffic</th>
+            <th>Timeline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-complete">
+            <td>1</td>
+            <td><strong>Privacy Policy Page</strong></td>
+            <td><span class="badge-new">New Page</span></td>
+            <td>—</td>
+            <td>Trust signal</td>
+            <td><span class="badge-complete">Complete</span></td>
+          </tr>
+          <tr class="row-complete">
+            <td>2</td>
+            <td><strong>Terms of Service Page</strong></td>
+            <td><span class="badge-new">New Page</span></td>
+            <td>—</td>
+            <td>Trust signal</td>
+            <td><span class="badge-complete">Complete</span></td>
+          </tr>
+          <tr class="row-complete">
+            <td>3</td>
+            <td><strong>ZATCA Service Card Enhanced</strong></td>
+            <td><span class="badge-updated">Updated</span></td>
+            <td>ZATCA Phase 2 compliance</td>
+            <td>590/mo</td>
+            <td><span class="badge-complete">Complete</span></td>
+          </tr>
+          <tr class="row-complete">
+            <td>4</td>
+            <td><strong>Solutions by Industry Section</strong></td>
+            <td><span class="badge-new">New Section</span></td>
+            <td>Industry-specific ERP/LMS/POS</td>
+            <td>800/mo</td>
+            <td><span class="badge-complete">Complete</span></td>
+          </tr>
+          <tr class="row-complete">
+            <td>5</td>
+            <td><strong>FAQ — ZATCA Phase 2 Q&amp;A</strong></td>
+            <td><span class="badge-updated">Updated</span></td>
+            <td>ZATCA Phase 2 integration</td>
+            <td>390/mo</td>
+            <td><span class="badge-complete">Complete</span></td>
+          </tr>
+          <tr class="row-complete">
+            <td>6</td>
+            <td><strong>FAQ — ERP Cost Pakistan</strong></td>
+            <td><span class="badge-updated">Updated</span></td>
+            <td>ERP software Pakistan cost</td>
+            <td>320/mo</td>
+            <td><span class="badge-complete">Complete</span></td>
+          </tr>
+          <tr class="row-complete">
+            <td>7</td>
+            <td><strong>FAQ — AI Chatbot Rates</strong></td>
+            <td><span class="badge-updated">Updated</span></td>
+            <td>AI chatbot development Pakistan</td>
+            <td>260/mo</td>
+            <td><span class="badge-complete">Complete</span></td>
+          </tr>
+          <tr class="row-complete">
+            <td>8</td>
+            <td><strong>FAQ — Outsourcing Rates</strong></td>
+            <td><span class="badge-updated">Updated</span></td>
+            <td>hire developers Pakistan</td>
+            <td>390/mo</td>
+            <td><span class="badge-complete">Complete</span></td>
+          </tr>
+          <tr class="row-planned">
+            <td>9</td>
+            <td><strong>Blog: ZATCA Phase 2 Guide</strong></td>
+            <td><span class="badge-new">Planned</span></td>
+            <td>ZATCA e-invoicing Saudi Arabia</td>
+            <td>720/mo</td>
+            <td><span class="badge-planned">Month 1</span></td>
+          </tr>
+          <tr class="row-planned">
+            <td>10</td>
+            <td><strong>Blog: Top 10 Software Houses PK</strong></td>
+            <td><span class="badge-new">Planned</span></td>
+            <td>software house Pakistan</td>
+            <td>1,900/mo</td>
+            <td><span class="badge-planned">Month 1</span></td>
+          </tr>
+          <tr class="row-planned">
+            <td>11</td>
+            <td><strong>Blog: Best ERP Pakistan SMEs</strong></td>
+            <td><span class="badge-new">Planned</span></td>
+            <td>ERP software Pakistan</td>
+            <td>880/mo</td>
+            <td><span class="badge-planned">Month 2</span></td>
+          </tr>
+          <tr class="row-planned">
+            <td>12</td>
+            <td><strong>/solutions/zatca-compliance page</strong></td>
+            <td><span class="badge-new">Planned</span></td>
+            <td>ZATCA integration (all)</td>
+            <td>3,000+/mo</td>
+            <td><span class="badge-planned">Month 1</span></td>
+          </tr>
+          <tr class="row-planned">
+            <td>13</td>
+            <td><strong>/services/ecommerce page</strong></td>
+            <td><span class="badge-new">Planned</span></td>
+            <td>e-commerce development Pakistan</td>
+            <td>880/mo</td>
+            <td><span class="badge-planned">Month 2</span></td>
+          </tr>
+          <tr class="row-planned">
+            <td>14</td>
+            <td><strong>/services/python-development</strong></td>
+            <td><span class="badge-new">Planned</span></td>
+            <td>Python development company Pakistan</td>
+            <td>110/mo</td>
+            <td><span class="badge-planned">Month 2</span></td>
+          </tr>
+          <tr class="row-planned">
+            <td>15</td>
+            <td><strong>Blog: Custom LMS vs Off-Shelf</strong></td>
+            <td><span class="badge-new">Planned</span></td>
+            <td>LMS software Pakistan</td>
+            <td>260/mo</td>
+            <td><span class="badge-planned">Month 2</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 7: LINK BUILDING ROADMAP
+  ═════════════════════════════════════════════════════ -->
+  <section id="linkbuilding">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Link Building Roadmap</h2>
+      <span class="section-sub">3-tier strategy across 0–6 months</span>
+    </div>
+
+    <div class="lb-grid">
+
+      <div class="lb-card t1">
+        <div class="lb-tier">Tier 1</div>
+        <div class="lb-heading">Do Now — Month 1</div>
+        <ul class="lb-items">
+          <li><strong>PSEB Directory Listing</strong><span>Pakistani government tech registry</span></li>
+          <li><strong>P@SHA Membership</strong><span>Pakistan Software Houses Association</span></li>
+          <li><strong>Clutch.co Profile</strong><span>B2B reviews, DA ~90 — enterprise buyers search here</span></li>
+          <li><strong>GoodFirms Profile</strong><span>Another high-authority B2B review platform</span></li>
+          <li><strong>CrunchBase</strong><span>Tech company directory with strong DA</span></li>
+          <li><strong>Google Business Profile</strong><span>3 locations: Lahore, Riyadh, Dubai</span></li>
+          <li><strong>Maroof.sa</strong><span>Saudi business registry for Riyadh office</span></li>
+        </ul>
+      </div>
+
+      <div class="lb-card t2">
+        <div class="lb-tier">Tier 2</div>
+        <div class="lb-heading">Month 2–3</div>
+        <ul class="lb-items">
+          <li><strong>ProPakistani Guest Post</strong><span>"Top Software Houses Pakistan 2025"</span></li>
+          <li><strong>TechJuice Guest Post</strong><span>Tech-focused content and brand awareness</span></li>
+          <li><strong>PakistanBusiness.pk</strong><span>Directory listing</span></li>
+          <li><strong>ZABTECH / local directories</strong><span>Regional tech directories</span></li>
+          <li><strong>LinkedIn Articles (CEO)</strong><span>Thought leadership on ZATCA, AI</span></li>
+          <li><strong>Medium / Substack cross-posts</strong><span>Syndicate blog content for reach</span></li>
+          <li><strong>DesignRush profile</strong><span>Design &amp; development directory</span></li>
+        </ul>
+      </div>
+
+      <div class="lb-card t3">
+        <div class="lb-tier">Tier 3</div>
+        <div class="lb-heading">Ongoing</div>
+        <ul class="lb-items">
+          <li><strong>Press Releases</strong><span>ProPakistani/TechJuice for major client wins</span></li>
+          <li><strong>P@SHA ICT Awards</strong><span>Annual submission for industry recognition</span></li>
+          <li><strong>PSEB Technology Awards</strong><span>Government-backed recognition</span></li>
+          <li><strong>Client Testimonial Campaigns</strong><span>Named mentions on client websites</span></li>
+          <li><strong>Academic Institution Backlinks</strong><span>LMS clients' university portals</span></li>
+          <li><strong>Chamber of Commerce Listings</strong><span>Lahore, Riyadh, Dubai chambers</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 8: 90-DAY ACTION PLAN
+  ═════════════════════════════════════════════════════ -->
+  <section id="plan">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">90-Day Action Plan</h2>
+      <span class="section-sub">Month-by-month execution roadmap</span>
+    </div>
+
+    <div class="plan-grid">
+
+      <div class="plan-card m1">
+        <div class="plan-month">Month 1</div>
+        <div class="plan-heading">Foundation &amp; Quick Wins</div>
+        <ol class="plan-items">
+          <li>Create /solutions/zatca-compliance landing page (3,000+ words, FAQ schema, screenshots)</li>
+          <li>Claim Google Business Profiles — Lahore, Riyadh, Dubai</li>
+          <li>Submit PSEB directory listing</li>
+          <li>Create Clutch.co &amp; GoodFirms profiles with consistent NAP</li>
+          <li>Publish blog: "ZATCA Phase 2 Integration Guide 2025"</li>
+          <li>Publish blog: "Top 10 Software Houses in Pakistan 2025"</li>
+          <li>Fix social icon URLs (replace all # placeholders)</li>
+          <li>Create branded OG image for social sharing</li>
+          <li>Replace placeholder phone number with real number</li>
+          <li>Submit sitemap to Google Search Console</li>
+        </ol>
+      </div>
+
+      <div class="plan-card m2">
+        <div class="plan-month">Month 2</div>
+        <div class="plan-heading">Content Expansion</div>
+        <ol class="plan-items">
+          <li>Create /services/ecommerce page (targeting e-commerce dev PK)</li>
+          <li>Create /services/python-development page</li>
+          <li>Create /services/php-development page</li>
+          <li>Publish blog: "Best ERP Software for Pakistan SMEs 2025"</li>
+          <li>Publish blog: "Custom LMS vs Moodle: Pakistan Education Guide"</li>
+          <li>Create Saudi Arabia dedicated landing page</li>
+          <li>Outreach to ProPakistani and TechJuice for guest posts</li>
+          <li>Update service-details.html anchor IDs (for deep linking)</li>
+          <li>Add width/height attributes to all images (CLS fix)</li>
+          <li>Apply for P@SHA ICT Awards 2025</li>
+        </ol>
+      </div>
+
+      <div class="plan-card m3">
+        <div class="plan-month">Month 3</div>
+        <div class="plan-heading">Authority &amp; Scale</div>
+        <ol class="plan-items">
+          <li>Create UAE dedicated landing page</li>
+          <li>Create 3 full case studies with ROI metrics (ERP, ZATCA, LMS)</li>
+          <li>Publish blog: "Outsourcing to Pakistan vs India: 2025 Rates Guide"</li>
+          <li>Start LinkedIn CEO thought leadership (1 article/week)</li>
+          <li>Add team page with engineer profiles and LinkedIn links</li>
+          <li>Implement GDPR and Refund policy pages</li>
+          <li>Submit to DesignRush, SoftwareSuggest, G2 Crowd</li>
+          <li>Monitor Google Search Console for first ZATCA keyword rankings</li>
+          <li>Request client testimonials for Clutch.co reviews</li>
+          <li>Set up monthly ranking report cadence</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       SECTION 9: ALERT & MONITORING SETUP
+  ═════════════════════════════════════════════════════ -->
+  <section id="monitoring">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Alert &amp; Monitoring Setup</h2>
+      <span class="section-sub">Configured for continuous campaign health tracking</span>
+    </div>
+
+    <div class="monitor-grid">
+
+      <div class="mon-card">
+        <div class="mon-header">
+          <span class="mon-icon">🔔</span>
+          <span class="mon-title">Ranking Alerts</span>
+        </div>
+        <div class="mon-rows">
+          <div class="mon-row"><span class="mon-label">Tool</span><span class="mon-val"><strong>Google Search Console</strong> (primary)</span></div>
+          <div class="mon-row"><span class="mon-label">Alert</span><span class="mon-val">Notify when impressions drop &gt;20% week-over-week</span></div>
+          <div class="mon-row"><span class="mon-label">Focus KWs</span><span class="mon-val">ZATCA integration · ERP software Pakistan · software house Pakistan</span></div>
+          <div class="mon-row"><span class="mon-label">Frequency</span><span class="mon-val"><strong>Weekly</strong></span></div>
+        </div>
+      </div>
+
+      <div class="mon-card">
+        <div class="mon-header">
+          <span class="mon-icon">📊</span>
+          <span class="mon-title">Traffic Monitoring</span>
+        </div>
+        <div class="mon-rows">
+          <div class="mon-row"><span class="mon-label">Tool</span><span class="mon-val"><strong>Google Analytics 4</strong></span></div>
+          <div class="mon-row"><span class="mon-label">Alert</span><span class="mon-val">15% traffic drop triggers investigation</span></div>
+          <div class="mon-row"><span class="mon-label">Key Pages</span><span class="mon-val">index.html · services.html · service-details.html#zatca-fbr</span></div>
+          <div class="mon-row"><span class="mon-label">Frequency</span><span class="mon-val"><strong>Weekly</strong> dashboard review</span></div>
+        </div>
+      </div>
+
+      <div class="mon-card">
+        <div class="mon-header">
+          <span class="mon-icon">🔍</span>
+          <span class="mon-title">Competitor Watch</span>
+        </div>
+        <div class="mon-rows">
+          <div class="mon-row"><span class="mon-label">Monitor</span><span class="mon-val"><strong>Systems Limited · Tkxel · Arbisoft</strong></span></div>
+          <div class="mon-row"><span class="mon-label">Track</span><span class="mon-val">New ZATCA/FBR content — immediate threat if found</span></div>
+          <div class="mon-row"><span class="mon-label">Track</span><span class="mon-val">New Gulf-market pages from any competitor</span></div>
+          <div class="mon-row"><span class="mon-label">Frequency</span><span class="mon-val"><strong>Monthly</strong></span></div>
+        </div>
+      </div>
+
+      <div class="mon-card">
+        <div class="mon-header">
+          <span class="mon-icon">⚙️</span>
+          <span class="mon-title">Technical Health</span>
+        </div>
+        <div class="mon-rows">
+          <div class="mon-row"><span class="mon-label">Monitor</span><span class="mon-val"><strong>Core Web Vitals</strong> via Search Console</span></div>
+          <div class="mon-row"><span class="mon-label">Alert</span><span class="mon-val">Any crawl errors on sitemap.xml pages</span></div>
+          <div class="mon-row"><span class="mon-label">Monitor</span><span class="mon-val">schema.org validation — zero errors target</span></div>
+          <div class="mon-row"><span class="mon-label">Frequency</span><span class="mon-val"><strong>Bi-weekly</strong></span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  Dashboard generated by <span>GitHub Copilot SEO Agent</span> · Campaign: <span>Rightway Systems</span> · <span>April 2026</span>
+</footer>
+
+<!-- ─── CHART.JS SCRIPTS ────────────────────────────────── -->
+<script>
+  const chartDefaults = {
+    color: '#94a3b8',
+    font: { family: "system-ui, -apple-system, 'Segoe UI', sans-serif" }
+  };
+  Chart.defaults.color = chartDefaults.color;
+  Chart.defaults.font.family = chartDefaults.font.family;
+
+  const gridColor = 'rgba(255,255,255,0.07)';
+  const tickColor = '#94a3b8';
+
+  // ── CHART A: Competitive Positioning (Grouped Bar) ────
+  const ctxA = document.getElementById('chartCompetitor').getContext('2d');
+  new Chart(ctxA, {
+    type: 'bar',
+    data: {
+      labels: ['Domain Authority', 'ZATCA Coverage', 'Content Depth', 'Gulf Market Focus'],
+      datasets: [
+        {
+          label: 'Rightway Systems',
+          data: [25, 95, 75, 75],
+          backgroundColor: 'rgba(124,58,237,0.75)',
+          borderColor: '#7c3aed',
+          borderWidth: 1,
+          borderRadius: 6,
+        },
+        {
+          label: 'Systems Limited',
+          data: [70, 10, 85, 70],
+          backgroundColor: 'rgba(59,130,246,0.65)',
+          borderColor: '#3b82f6',
+          borderWidth: 1,
+          borderRadius: 6,
+        },
+        {
+          label: 'Arbisoft',
+          data: [55, 0, 80, 10],
+          backgroundColor: 'rgba(16,185,129,0.6)',
+          borderColor: '#10b981',
+          borderWidth: 1,
+          borderRadius: 6,
+        },
+        {
+          label: 'Tkxel',
+          data: [48, 0, 70, 30],
+          backgroundColor: 'rgba(245,158,11,0.6)',
+          borderColor: '#f59e0b',
+          borderWidth: 1,
+          borderRadius: 6,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: '#f1f5f9', font: { size: 11 }, padding: 12, boxWidth: 12, boxHeight: 12 }
+        },
+        tooltip: {
+          backgroundColor: '#1e1e1e',
+          titleColor: '#f1f5f9',
+          bodyColor: '#94a3b8',
+          borderColor: '#333',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}/100`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: gridColor },
+          ticks: { color: tickColor, font: { size: 11 } }
+        },
+        y: {
+          min: 0, max: 100,
+          grid: { color: gridColor },
+          ticks: { color: tickColor, font: { size: 11 }, stepSize: 20 }
+        }
+      }
+    }
+  });
+
+  // ── CHART B: SEO Score Improvements (Before/After Bar) ─
+  const ctxB = document.getElementById('chartImprovement').getContext('2d');
+  new Chart(ctxB, {
+    type: 'bar',
+    data: {
+      labels: ['On-Page SEO', 'Domain Auth', 'EEAT Score', 'GEO Citation'],
+      datasets: [
+        {
+          label: 'Before',
+          data: [54, 59, 51, 45],
+          backgroundColor: 'rgba(100,116,139,0.7)',
+          borderColor: 'rgba(100,116,139,0.9)',
+          borderWidth: 1,
+          borderRadius: 6,
+        },
+        {
+          label: 'After',
+          data: [87, 79, 63, 83],
+          backgroundColor: 'rgba(124,58,237,0.85)',
+          borderColor: '#7c3aed',
+          borderWidth: 1,
+          borderRadius: 6,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: '#f1f5f9', font: { size: 11 }, padding: 16, boxWidth: 12, boxHeight: 12 }
+        },
+        tooltip: {
+          backgroundColor: '#1e1e1e',
+          titleColor: '#f1f5f9',
+          bodyColor: '#94a3b8',
+          borderColor: '#333',
+          borderWidth: 1,
+          padding: 10,
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: gridColor },
+          ticks: { color: tickColor, font: { size: 12 } }
+        },
+        y: {
+          min: 0, max: 100,
+          grid: { color: gridColor },
+          ticks: { color: tickColor, font: { size: 11 }, stepSize: 20 }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

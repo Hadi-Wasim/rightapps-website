@@ -1,0 +1,433 @@
+/* =====================================================================
+   Rightway Systems — Brand Enhancement Styles
+   Colors: #219ebd (Teal), #023048 (Navy)
+   ===================================================================== */
+
+/* ===================== ANIMATIONS ===================== */
+
+@keyframes rw-float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33%       { transform: translateY(-18px) translateX(8px); }
+  66%       { transform: translateY(-8px) translateX(-8px); }
+}
+
+@keyframes rw-pulse-glow {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(1.12); }
+}
+
+@keyframes rw-badge-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+@keyframes rw-gradient-pan {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes rw-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes rw-rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes rw-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+@keyframes rw-fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== HERO ENHANCEMENTS ===================== */
+
+/* Vibrant teal hero glow — replaces the faint purple one */
+.rw-hero-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 480px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(33, 158, 189, 0.18) 0%,
+    rgba(33, 158, 189, 0.07) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  user-select: none;
+  animation: rw-pulse-glow 5s ease-in-out infinite;
+}
+
+/* Secondary smaller side glow */
+.rw-hero-glow-side {
+  position: absolute;
+  top: 10%;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(2, 48, 72, 0.5) 0%, transparent 70%);
+  pointer-events: none;
+  animation: rw-float 12s ease-in-out infinite;
+}
+
+/* ===================== ACCENT BADGE ===================== */
+
+.rw-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(33, 158, 189, 0.45);
+  background: rgba(33, 158, 189, 0.1);
+  color: rgba(33, 158, 189, 0.95);
+  animation: rw-fade-in-up 0.7s ease-out forwards;
+  backdrop-filter: blur(8px);
+}
+
+.rw-badge-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #219ebd;
+  flex-shrink: 0;
+  animation: rw-badge-dot 2s ease-in-out infinite;
+}
+
+/* ===================== GRADIENT TEXT ===================== */
+
+.rw-gradient-text {
+  background: linear-gradient(135deg, #219ebd 0%, #50c8e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===================== ACCENT LINE ===================== */
+
+.rw-accent-line {
+  display: block;
+  width: 44px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #219ebd, #50c8e0);
+  margin-bottom: 14px;
+}
+
+/* ===================== CARD HOVER EFFECTS ===================== */
+
+.rw-card-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.rw-card-hover:hover {
+  border-color: rgba(33, 158, 189, 0.45) !important;
+  box-shadow: 0 4px 32px rgba(33, 158, 189, 0.14), 0 0 0 1px rgba(33, 158, 189, 0.18);
+  transform: translateY(-4px);
+}
+
+/* Service cards */
+.rw-service-card {
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.rw-service-card:hover {
+  background: linear-gradient(135deg, rgba(2, 48, 72, 0.35) 0%, rgba(33, 158, 189, 0.06) 100%) !important;
+  border-color: rgba(33, 158, 189, 0.4) !important;
+  box-shadow: 0 8px 40px rgba(33, 158, 189, 0.13);
+  transform: translateY(-5px);
+}
+
+/* Learn more link color on service card hover */
+.rw-service-card:hover span.text-opai-purple {
+  color: #219ebd;
+}
+
+/* Bento / why-us cards */
+.rw-bento-card {
+  background: linear-gradient(135deg, rgba(2, 48, 72, 0.28) 0%, rgba(10, 80, 112, 0.1) 100%) !important;
+  border-color: rgba(33, 158, 189, 0.18) !important;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rw-bento-card:hover {
+  background: linear-gradient(135deg, rgba(2, 48, 72, 0.5) 0%, rgba(33, 158, 189, 0.1) 100%) !important;
+  border-color: rgba(33, 158, 189, 0.4) !important;
+  box-shadow: 0 0 24px rgba(33, 158, 189, 0.12);
+}
+
+/* Stat / metric cards (about page) */
+.rw-stat-card {
+  background: linear-gradient(135deg, rgba(2, 48, 72, 0.38) 0%, rgba(33, 158, 189, 0.06) 100%) !important;
+  border-color: rgba(33, 158, 189, 0.22) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rw-stat-card:hover {
+  border-color: rgba(33, 158, 189, 0.5) !important;
+  box-shadow: 0 0 22px rgba(33, 158, 189, 0.15);
+}
+
+/* Contact info cards */
+.rw-contact-card {
+  background: linear-gradient(135deg, rgba(2, 48, 72, 0.55) 0%, rgba(10, 80, 112, 0.28) 100%) !important;
+  border: 1px solid rgba(33, 158, 189, 0.18) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rw-contact-card:hover {
+  border-color: rgba(33, 158, 189, 0.5) !important;
+  box-shadow: 0 0 28px rgba(33, 158, 189, 0.12);
+}
+
+/* ===================== FEATURED / HIGHLIGHTED CARDS ===================== */
+
+/* Pricing featured plan */
+.rw-pricing-featured {
+  background: linear-gradient(135deg, rgba(2, 48, 72, 0.75) 0%, rgba(33, 158, 189, 0.12) 100%) !important;
+  border: 2px solid rgba(33, 158, 189, 0.55) !important;
+  box-shadow: 0 0 50px rgba(33, 158, 189, 0.22);
+}
+
+/* Glowing animated border for special feature cards */
+.rw-featured-outline {
+  position: relative;
+  overflow: hidden;
+}
+
+.rw-featured-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #219ebd, #023048, #50c8e0, #023048);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rw-gradient-pan 4s linear infinite;
+  pointer-events: none;
+}
+
+/* ===================== DECORATIVE FLOATING ORBS ===================== */
+
+.rw-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  user-select: none;
+  animation: rw-float 10s ease-in-out infinite;
+}
+
+.rw-orb-teal {
+  background: radial-gradient(circle, rgba(33, 158, 189, 0.35) 0%, transparent 70%);
+}
+
+.rw-orb-navy {
+  background: radial-gradient(circle, rgba(2, 48, 72, 0.6) 0%, transparent 70%);
+}
+
+.rw-orb-cyan {
+  background: radial-gradient(circle, rgba(80, 200, 224, 0.25) 0%, transparent 70%);
+}
+
+/* Rotating ring decorations */
+.rw-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(33, 158, 189, 0.12);
+  pointer-events: none;
+}
+
+.rw-ring-spin {
+  animation: rw-rotate-slow 25s linear infinite;
+}
+
+.rw-ring-spin-reverse {
+  animation: rw-rotate-slow 40s linear infinite reverse;
+}
+
+/* ===================== SECTION BACKGROUNDS ===================== */
+
+/* Teal-tinted section overlay */
+.rw-section-teal-bg {
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 48, 72, 0.25) 50%, transparent 100%);
+  position: relative;
+}
+
+/* Section top highlight line */
+.rw-section-top-line {
+  position: relative;
+}
+
+.rw-section-top-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(33, 158, 189, 0.4), transparent);
+}
+
+/* ===================== ICON ACCENT BOXES ===================== */
+
+.rw-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(33, 158, 189, 0.1);
+  border: 1px solid rgba(33, 158, 189, 0.25);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.rw-icon-box:hover {
+  background: rgba(33, 158, 189, 0.2);
+  border-color: rgba(33, 158, 189, 0.5);
+}
+
+/* ===================== CTA GRADIENT SECTION ===================== */
+
+.rw-cta-gradient {
+  background: linear-gradient(135deg, rgba(2, 48, 72, 0.8) 0%, rgba(10, 80, 112, 0.5) 50%, rgba(33, 158, 189, 0.12) 100%);
+  border: 1px solid rgba(33, 158, 189, 0.25);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rw-cta-gradient::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(33, 158, 189, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ===================== TECH BADGES ===================== */
+
+.rw-tech-badge {
+  display: inline-block;
+  padding: 3px 11px;
+  border-radius: 100px;
+  background: rgba(33, 158, 189, 0.1);
+  border: 1px solid rgba(33, 158, 189, 0.28);
+  font-size: 0.75rem;
+  color: rgba(33, 158, 189, 0.9);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.rw-tech-badge:hover {
+  background: rgba(33, 158, 189, 0.22);
+  border-color: rgba(33, 158, 189, 0.55);
+}
+
+/* ===================== FAQ ACCORDION TEAL INDICATOR ===================== */
+
+/* NOTE: accordion-item.is-open is applied per-page via inline style on the
+   faq/hero.htm wrapper, NOT here — to avoid leaking to homepage accordion. */
+
+/* Teal FAQradial glow for the big FAQ box */
+.rw-faq-glow {
+  background: radial-gradient(
+    65% 100% at 16% 6%,
+    rgba(33, 158, 189, 0.22) 0%,
+    rgba(33, 158, 189, 0.0) 59%
+  ) !important;
+}
+
+/* ===================== SHIMMER EFFECT ===================== */
+
+.rw-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.rw-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(33, 158, 189, 0.08) 50%,
+    transparent 60%
+  );
+  animation: rw-shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ===================== SCROLL INDICATOR ===================== */
+
+.rw-scroll-indicator {
+  animation: rw-bounce 2.2s ease-in-out infinite;
+}
+
+/* ===================== TEAL BUTTON ACCENT ===================== */
+
+.rw-btn-teal {
+  background: linear-gradient(135deg, #219ebd, #0e8ab0);
+  color: #fff;
+  border: none;
+  padding: 11px 28px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 18px rgba(33, 158, 189, 0.38);
+}
+
+.rw-btn-teal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(33, 158, 189, 0.5);
+}
+
+/* ===================== DIVIDER ===================== */
+
+.rw-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(33, 158, 189, 0.38), transparent);
+}
+
+/* ===================== REDUCED MOTION ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .rw-orb,
+  .rw-hero-glow,
+  .rw-hero-glow-side,
+  .rw-badge-dot,
+  .rw-ring-spin,
+  .rw-ring-spin-reverse,
+  .rw-scroll-indicator,
+  .rw-featured-outline::before,
+  .rw-shimmer::after {
+    animation: none !important;
+  }
+}

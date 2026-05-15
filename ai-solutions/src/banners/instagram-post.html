@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080" />
+  <title>Rightway Systems — Instagram Post</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter+Tight:wght@300;400;600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0a0a0f; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 0.85; transform: scale(1.06); }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes statCount {
+      from { opacity: 0; transform: scale(0.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -400px 0; }
+      100% { background-position: 400px 0; }
+    }
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes cornerFade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .banner {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      background: #0d1017;
+      overflow: hidden;
+      font-family: 'Sora', sans-serif;
+    }
+
+    /* Dot grid */
+    .dot-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(141,89,255,0.13) 1.5px, transparent 1.5px);
+      background-size: 44px 44px;
+      pointer-events: none;
+    }
+
+    /* Large center radial glow */
+    .glow-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 820px;
+      height: 820px;
+      background: radial-gradient(ellipse at 50% 50%,
+        rgba(141,89,255,0.28) 0%,
+        rgba(141,89,255,0.12) 30%,
+        rgba(34,126,255,0.06) 55%,
+        transparent 70%);
+      pointer-events: none;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    /* Corner geometric accents */
+    .corner-tl {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 180px;
+      pointer-events: none;
+      animation: cornerFade 1s ease 0.5s both;
+    }
+    .corner-br {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 180px;
+      height: 180px;
+      pointer-events: none;
+      animation: cornerFade 1s ease 0.7s both;
+      transform: rotate(180deg);
+    }
+    .corner-tr {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 140px;
+      height: 140px;
+      pointer-events: none;
+      animation: cornerFade 1s ease 0.6s both;
+    }
+    .corner-bl {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 140px;
+      height: 140px;
+      pointer-events: none;
+      animation: cornerFade 1s ease 0.8s both;
+      transform: rotate(180deg);
+    }
+
+    /* Top company name */
+    .top-label {
+      position: absolute;
+      top: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,0.38);
+      text-transform: uppercase;
+      white-space: nowrap;
+      animation: fadeSlideUp 0.6s ease both;
+    }
+
+    /* Top divider line */
+    .top-line {
+      position: absolute;
+      top: 84px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 1px;
+      background: rgba(141,89,255,0.4);
+    }
+
+    /* Giant stat number */
+    .stat-number {
+      position: absolute;
+      top: 310px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 200px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #219ebc;
+      text-shadow:
+        0 0 60px rgba(141,89,255,0.7),
+        0 0 120px rgba(141,89,255,0.35),
+        0 0 200px rgba(141,89,255,0.15);
+      white-space: nowrap;
+      animation: statCount 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+      /* Shimmer effect on number */
+      background: linear-gradient(90deg, #219ebc 0%, #b8a0ff 45%, #219ebc 55%, #6b3de0 100%);
+      background-size: 400px 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: statCount 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both, shimmer 3s linear 1s infinite;
+    }
+
+    /* Stat label */
+    .stat-label {
+      position: absolute;
+      top: 540px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Sora', sans-serif;
+      font-weight: 300;
+      font-size: 34px;
+      color: rgba(255,255,255,0.90);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      text-align: center;
+      animation: fadeSlideUp 0.6s ease 0.4s both;
+    }
+
+    /* Horizontal divider */
+    .h-divider {
+      position: absolute;
+      top: 618px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 480px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(141,89,255,0.6) 30%, rgba(34,126,255,0.5) 70%, transparent);
+    }
+
+    /* Markets row */
+    .markets-row {
+      position: absolute;
+      top: 650px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      white-space: nowrap;
+      animation: fadeSlideUp 0.6s ease 0.5s both;
+    }
+    .market-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .market-flag {
+      font-size: 30px;
+      line-height: 1;
+    }
+    .market-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+    }
+    .market-sep {
+      width: 1px;
+      height: 36px;
+      background: rgba(141,89,255,0.25);
+    }
+
+    /* Service pills row */
+    .pills-row {
+      position: absolute;
+      top: 778px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      animation: fadeSlideUp 0.6s ease 0.6s both;
+    }
+    .pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(141,89,255,0.85);
+      background: rgba(141,89,255,0.08);
+      border: 1px solid rgba(141,89,255,0.22);
+      border-radius: 20px;
+      padding: 7px 14px;
+      text-transform: uppercase;
+    }
+
+    /* Bottom URL */
+    .bottom-url {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.28);
+      text-transform: lowercase;
+      white-space: nowrap;
+      animation: fadeSlideUp 0.6s ease 0.7s both;
+    }
+
+    /* Bottom bar */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #219ebc 30%, rgba(34,126,255,0.7) 70%, transparent);
+    }
+
+    /* Top border */
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, rgba(141,89,255,0.5) 30%, rgba(34,126,255,0.4) 70%, transparent);
+    }
+
+    /* Rotating ring decoration (very subtle) */
+    .ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 680px;
+      height: 680px;
+      border: 1px solid rgba(141,89,255,0.06);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: rotateSlow 40s linear infinite;
+    }
+    .ring-2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 860px;
+      height: 860px;
+      border: 1px dashed rgba(34,126,255,0.05);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: rotateSlow 60s linear infinite reverse;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <!-- Background layers -->
+    <div class="dot-grid"></div>
+    <div class="glow-center"></div>
+    <div class="ring"></div>
+    <div class="ring-2"></div>
+
+    <!-- Corner geometric accents (SVG) -->
+    <svg class="corner-tl" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0 L80 0 L80 10 L10 10 L10 80 L0 80 Z" fill="rgba(141,89,255,0.12)"/>
+      <path d="M0 0 L50 0 L50 4 L4 4 L4 50 L0 50 Z" fill="rgba(141,89,255,0.18)"/>
+      <line x1="20" y1="0" x2="20" y2="20" stroke="rgba(141,89,255,0.2)" stroke-width="1"/>
+      <line x1="0" y1="20" x2="20" y2="20" stroke="rgba(141,89,255,0.2)" stroke-width="1"/>
+      <circle cx="20" cy="20" r="2.5" fill="rgba(141,89,255,0.4)"/>
+      <line x1="40" y1="0" x2="40" y2="10" stroke="rgba(141,89,255,0.12)" stroke-width="1"/>
+      <line x1="0" y1="40" x2="10" y2="40" stroke="rgba(141,89,255,0.12)" stroke-width="1"/>
+    </svg>
+
+    <svg class="corner-tr" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M140 0 L60 0 L60 10 L130 10 L130 60 L140 60 Z" fill="rgba(34,126,255,0.10)"/>
+      <path d="M140 0 L100 0 L100 4 L136 4 L136 40 L140 40 Z" fill="rgba(34,126,255,0.14)"/>
+      <circle cx="120" cy="20" r="2" fill="rgba(34,126,255,0.35)"/>
+    </svg>
+
+    <svg class="corner-br" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0 L80 0 L80 10 L10 10 L10 80 L0 80 Z" fill="rgba(141,89,255,0.10)"/>
+      <path d="M0 0 L50 0 L50 4 L4 4 L4 50 L0 50 Z" fill="rgba(141,89,255,0.16)"/>
+      <circle cx="20" cy="20" r="2.5" fill="rgba(141,89,255,0.35)"/>
+    </svg>
+
+    <svg class="corner-bl" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M140 0 L60 0 L60 10 L130 10 L130 60 L140 60 Z" fill="rgba(34,126,255,0.08)"/>
+      <circle cx="120" cy="20" r="2" fill="rgba(34,126,255,0.30)"/>
+    </svg>
+
+    <!-- Top section -->
+    <div class="top-bar"></div>
+    <div class="top-label">Rightway Systems</div>
+    <div class="top-line"></div>
+
+    <!-- Giant stat -->
+    <div class="stat-number">500+</div>
+
+    <!-- Stat description -->
+    <div class="stat-label">Enterprise Projects Delivered</div>
+
+    <!-- Horizontal divider -->
+    <div class="h-divider"></div>
+
+    <!-- Markets -->
+    <div class="markets-row">
+      <div class="market-item">
+        <div class="market-flag">🇵🇰</div>
+        <div class="market-name">Pakistan</div>
+      </div>
+      <div class="market-sep"></div>
+      <div class="market-item">
+        <div class="market-flag">🇸🇦</div>
+        <div class="market-name">Saudi Arabia</div>
+      </div>
+      <div class="market-sep"></div>
+      <div class="market-item">
+        <div class="market-flag">🇦🇪</div>
+        <div class="market-name">UAE</div>
+      </div>
+    </div>
+
+    <!-- Service pills -->
+    <div class="pills-row">
+      <span class="pill">ERP</span>
+      <span class="pill">ZATCA</span>
+      <span class="pill">AI</span>
+      <span class="pill">LMS</span>
+      <span class="pill">POS</span>
+    </div>
+
+    <!-- Bottom -->
+    <div class="bottom-url">rightapps.net</div>
+    <div class="bottom-bar"></div>
+  </div>
+</body>
+</html>
