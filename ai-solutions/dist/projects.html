@@ -253,14 +253,14 @@ Head links
     <link rel="stylesheet" href="./assets/main.css">
   </head>
   <body>
-    <header>
+    <header class="h-0">
   <nav
     data-opai-animate
     data-opai-animate-delay="0.8"
     data-direction="top"
     class="bg-background-5 header-one border-stroke-3/18 fixed top-6 left-1/2 z-30 mx-auto flex w-full max-w-[350px] -translate-x-1/2 items-center justify-between rounded-full border py-1.5 pr-5 pl-2 md:max-w-[640px] lg:max-w-[860px] lg:py-0 lg:pr-1.5 lg:pl-1.5"
   >
-    <a href="/" class="block size-11" aria-label="Rightway Systems home">
+    <a href="/" class="block size-11 p-2" aria-label="Rightway Systems home">
       <figure class="size-full">
         <img class="size-full" src="./images/logo/gemini-svg.svg" alt="Rightway Systems"
                   loading="eager" />
@@ -279,7 +279,7 @@ Head links
           ></div>
 
           <div
-            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#8D59FF66] from-40% to-[#8D59FF00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
+            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#219ebc66] from-40% to-[#219ebc00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
           ></div>
         </div>
 
@@ -454,7 +454,7 @@ Head links
           ></div>
 
           <div
-            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#8D59FF66] from-40% to-[#8D59FF00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
+            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#219ebc66] from-40% to-[#219ebc00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
           ></div>
         </div>
         <a href="./about.html" class="nav-link relative z-5 flex items-center gap-1.5">
@@ -473,7 +473,7 @@ Head links
           ></div>
 
           <div
-            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#8D59FF66] from-40% to-[#8D59FF00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
+            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#219ebc66] from-40% to-[#219ebc00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
           ></div>
         </div>
         <a href="./erp-solutions.html" class="nav-link relative z-5 flex items-center gap-1.5">
@@ -492,7 +492,7 @@ Head links
           ></div>
 
           <div
-            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#8D59FF66] from-40% to-[#8D59FF00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
+            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#219ebc66] from-40% to-[#219ebc00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
           ></div>
         </div>
         <a href="./services.html" class="nav-link relative z-5 flex items-center gap-1.5">
@@ -513,7 +513,7 @@ Head links
           ></div>
 
           <div
-            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#8D59FF66] from-40% to-[#8D59FF00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
+            class="nav-item-gradient absolute top-0 left-1/2 h-[89%] w-[calc(100%+120px)] -translate-x-1/2 bg-radial-[circle_at_center] from-[#219ebc66] from-40% to-[#219ebc00] to-100% opacity-0 blur-[14px] transition-all duration-500 ease-out group-hover/nav-item:opacity-80"
           ></div>
         </div>
         <a href="#" class="nav-link relative z-5 flex items-center gap-1.5">
@@ -1617,7 +1617,8 @@ Mobile Menu
         data-direction="right"
       >
         <div
-          class="border-stroke-1/11 group relative flex min-h-[347px] items-end overflow-hidden rounded-xl border bg-[url('/images/opai-img-475.jpg')] bg-cover bg-center bg-no-repeat p-8 rw-bento-card"
+          class="border-stroke-1/11 group relative flex min-h-[347px] items-end overflow-hidden rounded-xl border p-8 rw-bento-card"
+          style="background-image: url('./images/opai-img-475.jpg'); background-size: cover; background-position: center;"
         >
           <div
             class="absolute inset-0 z-0 size-full scale-105 bg-[linear-gradient(232deg,rgba(13,16,23,0.00)_49.68%,rgba(13,16,23,0.60)_70.59%,#0D1017_84.77%)] bg-cover bg-center bg-no-repeat transition-all duration-700 group-hover:scale-100"
@@ -1706,8 +1707,8 @@ Mobile Menu
           class="font-sora md:text-sora-heading-3 text-sora-heading-4 max-md:-leading-[110%] lg:text-sora-heading-2 font-normal"
           data-opai-split-text
         >
-          <span class="font-normal text-white/90"> Start Your Digital </span>
-          <span class="text-white/30"> Transformation Today. </span>
+          <span class="font-normal text-white/90"> Let AI Handle </span>
+          <span class="text-white/30"> the Heavy Work. </span>
         </h2>
         <p
           class="text-tagline-2 font-inter-tight text-white/60"
@@ -1715,7 +1716,7 @@ Mobile Menu
           data-delay="0.3"
           data-line-delay="0.1"
         >
-          Let’s explore how Rightway Systems can drive success for your business.
+          From custom LLM chatbots to end-to-end workflow automation — enterprise AI built for Pakistan and Gulf markets.
         </p>
         <div class="mt-6 md:mt-12" data-opai-animate data-delay="0.6" data-duration="0.7">
           <div class="{=$display-class} button-split-text-wrapper inline-block">
@@ -1864,7 +1865,7 @@ Mobile Menu
         <div class="space-y-8" data-opai-animate data-delay="0.1">
           <a href="/" class="-ml-3 block">
             <span class="sr-only">Rightway Systems</span>
-            <figure class="h-[40px] w-[166px]">
+            <figure class="h-[108px] w-[166px]">
               <img src="./images/logo/gemini-svg-big-f.svg" alt="logo" class="h-full w-full"
                   loading="lazy" />
             </figure>
@@ -1877,10 +1878,7 @@ Mobile Menu
             <div>
               <p class="text-tagline-2 text-background-11 mb-1 font-semibold">Address:</p>
               <p class="text-tagline-3 font-normal text-white/50">
-                Office 14, IT Tower, Lahore, Punjab, Pakistan
-              </p>
-              <p class="text-tagline-4 font-normal text-white/35 mt-1">
-                Service Area: Pakistan | Saudi Arabia | UAE
+                307, Hassan Shopping Mall, D-ground, Faisalabad.
               </p>
             </div>
             <div>
