@@ -1103,7 +1103,7 @@ Mobile Menu
                 class="bg-red/10 modal-action group relative my-auto inline-block h-14 w-[102px] cursor-pointer overflow-hidden rounded-full border-5 border-white/3 md:h-[66px]"
                 aria-label="Play video about Rightway Systems"
                 type="button"
-                data-video-url="https://www.youtube.com/embed/LuKAeNC8e3c?si=dNprxE8hkadUeDvf"
+                data-video-url="#"
               >
                 <img
                   src="./images/opai-img-96.png"
@@ -1216,7 +1216,7 @@ Mobile Menu
             class="bg-background-7 border-stroke-1/11 group modal-action relative z-20 flex size-[52px] cursor-pointer items-center justify-center rounded-full border"
             aria-label="Play demo video"
             type="button"
-            data-video-url="https://www.youtube.com/embed/BTMjD7_evjE?si=HXnYR-0JdkmV_kwM"
+            data-video-url="#"
           >
             <span
               class="flex size-6 items-center justify-center gap-x-1 overflow-hidden"
@@ -1322,18 +1322,6 @@ Mobile Menu
                   loading="lazy" />
   </div>
 </section>
-
-<!-- #include <iostream>
-      using namespace std;
-      
-      int main()
-          {
-              cout << "This is a placeholder for the hero section of the homepage, showcasing our AI solutions and inviting users to explore our offerings." << endl;
-              return 0;
-          }
-              so considering the fact that we have already implemented the hero section in HTML, this C++ code is just a fun addition and does not affect the actual webpage. It serves as a reminder of the purpose of the hero section and adds a bit of programming humor to our project.
-              this will work for us in this regard
-      -->
 
       <!-- our impact section  -->
 
@@ -3090,7 +3078,7 @@ Mobile Menu
 
 <section
   class="relative overflow-hidden py-10 pt-20 sm:py-20 md:py-28 lg:py-36 xl:py-40 2xl:py-44"
-  style="background: linear-gradient(to bottom, #f8f9fa 0%, #f8f9fa 2%, #0d1017 20%, #0d1017 80%, #f8f9fa 100%);"
+  style="background: linear-gradient(to bottom, #f8f9fa 0%, #f8f9fa 2%, #0d1017 20%);"
 >
   <!-- top gradient background  -->
   <div class="absolute top-0 left-0 z-4 h-[796px] w-full md:h-[760px]">
@@ -4749,14 +4737,17 @@ Mobile Menu
 
       <!-- Form Fields Section -->
       <div class="flex flex-1 flex-col gap-[42px]">
-        <form class="flex flex-1 flex-col gap-6" data-opai-animate data-delay="0.2">
+        <!-- Success / Error Message -->
+        <div id="contact-form-msg" class="hidden rounded-lg px-5 py-4 text-sm font-medium"></div>
+
+        <form id="contact-form" class="flex flex-1 flex-col gap-6" novalidate data-opai-animate data-delay="0.2">
           <!-- Full Name Field -->
           <div
             class="bg-background-6 border-stroke-1/11 focus:border-stroke-1 flex items-center gap-1 rounded-lg border px-3 py-3 pl-3 focus:outline-none"
           >
             <input
               type="text"
-              id="full-name"
+              id="full-name"`n              name="name"
               placeholder="Full name"
               class="font-inter-tight text-tagline-2 w-full bg-transparent font-normal text-white/60 placeholder:text-white/60 focus:outline-none"
             />
@@ -4768,7 +4759,7 @@ Mobile Menu
           >
             <input
               type="email"
-              id="email-address"
+              id="email-address"`n              name="email"
               placeholder="Email address"
               class="font-inter-tight text-tagline-2 w-full bg-transparent font-normal text-white/60 placeholder:text-white/60 focus:outline-none"
             />
@@ -4782,7 +4773,7 @@ Mobile Menu
             >
               <input
                 type="text"
-                id="company-name"
+                id="company-name"`n                name="company"
                 placeholder="Company name"
                 class="font-inter-tight text-tagline-2 w-full bg-transparent font-normal text-white/60 placeholder:text-white/60 focus:outline-none"
               />
@@ -4794,7 +4785,7 @@ Mobile Menu
             >
               <input
                 type="tel"
-                id="phone"
+                id="phone"`n                name="phone"
                 placeholder="Phone"
                 class="font-inter-tight text-tagline-2 w-full bg-transparent font-normal text-white/60 placeholder:text-white/60 focus:outline-none"
               />
@@ -4807,7 +4798,7 @@ Mobile Menu
           >
             <input
               type="text"
-              id="subject"
+              id="subject"`n              name="subject"
               placeholder="Subject"
               class="font-inter-tight text-tagline-2 w-full bg-transparent font-normal text-white/60 placeholder:text-white/60 focus:outline-none"
             />
@@ -4818,7 +4809,7 @@ Mobile Menu
             class="bg-background-6 border-stroke-1/11 focus:border-stroke-1 flex flex-1 flex-col gap-4 rounded border px-3 py-2 focus:outline-none"
           >
             <textarea
-              id="message"
+              id="message"`n              name="message"
               placeholder="Your message"
               rows="6"
               class="font-inter-tight text-tagline-2 flex-1 resize-none bg-transparent font-normal text-white/60 placeholder:text-white/60 focus:outline-none"
@@ -4827,7 +4818,7 @@ Mobile Menu
 
           <!-- Submit Button -->
 
-          <button type="submit" class="flex justify-end">
+          <button type="submit" id="contact-submit" class="flex justify-end">
             <div class="button-split-text-wrapper inline-block w-auto">
               <div
                 class="group bg-background-7 hover:border-stroke-3 relative flex max-h-12 cursor-pointer items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-6 !py-2 transition-all duration-300 ease-in-out md:!py-3"
@@ -5364,5 +5355,31 @@ Video Modal
   </div>
 </dialog>
 
-  </body>
+  <script>
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = document.getElementById('contact-submit');
+    var msgBox = document.getElementById('contact-form-msg');
+    var name = form.querySelector('[name="name"]').value.trim();
+    var email = form.querySelector('[name="email"]').value.trim();
+    var message = form.querySelector('[name="message"]').value.trim();
+    if (!name || !email || !message) { showMsg(msgBox, 'Please fill in your name, email, and message.', false); return; }
+    btn.disabled = true;
+    msgBox.className = 'hidden rounded-lg px-5 py-4 text-sm font-medium';
+    fetch('./contact.php', { method: 'POST', body: new FormData(form) })
+      .then(function(r){ return r.json(); })
+      .then(function(res){ showMsg(msgBox, res.message, res.success); if(res.success) form.reset(); })
+      .catch(function(){ showMsg(msgBox, 'Network error. Please email us at info@rightapps.net', false); })
+      .finally(function(){ btn.disabled = false; });
+  });
+  function showMsg(el, text, ok) {
+    el.textContent = text;
+    el.className = 'rounded-lg px-5 py-4 text-sm font-medium ' + (ok ? 'bg-green-900/40 text-green-300 border border-green-700/40' : 'bg-red-900/40 text-red-300 border border-red-700/40');
+  }
+}());
+</script>
+</body>
 </html>
