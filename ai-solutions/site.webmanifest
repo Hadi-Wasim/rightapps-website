@@ -1,0 +1,14 @@
+{
+  "name": "Rightway Systems",
+  "short_name": "Rightway",
+  "description": "Enterprise Software, AI Automation and ERP - Pakistan, Saudi Arabia, UAE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071018",
+  "theme_color": "#071018",
+  "icons": [
+    { "src": "/favicon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
